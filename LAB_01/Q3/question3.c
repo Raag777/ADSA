@@ -1,43 +1,53 @@
 #include <stdio.h>
 
-// Iterative function to find defective coin
+// Function to find the defective (lighter) coin
 int findDefective(int coins[], int n) {
-    int low = 0, high = n-1;
+    int low = 0, high = n - 1;
 
     while (low < high) {
         int mid = low + (high - low) / 2;
-        
-        if(coins[low] < coins[high]){
-            return low;
+
+        // If the number of coins is even
+        if ((high - low + 1) % 2 == 0) {
+            int sumLeft = 0, sumRight = 0;
+            int leftStart = low;
+            int leftEnd = low + (high - low) / 2;
+            int rightStart = leftEnd + 1;
+            int rightEnd = high;
+
+            for (int i = leftStart; i <= leftEnd; i++) sumLeft += coins[i];
+            for (int i = rightStart; i <= rightEnd; i++) sumRight += coins[i];
+
+            if (sumLeft < sumRight) {
+                high = leftEnd;
+            } else {
+                low = rightStart;
+            }
         }
-       
-        if(coins[mid] < coins[low]){
-            return mid;
-        }
-         
-        // Calculate weights of left and right halves
-        int sumLeft = 0, sumRight = 0;
-        for (int i = low; i <= mid; i++) sumLeft += coins[i];
-        for (int i = mid+1; i <= high; i++) sumRight += coins[i];
-        
-        
-        
-        if (sumLeft < sumRight) {
-            high = mid;         // defective coin is in left half
-        } else if (sumRight < sumLeft) {
-            low = mid + 1;      // defective coin is in right half
-        } else {
-            return -1;           // no defective coin
-        }
-        
-        if(coins[mid] == coins[low] ){
-            return mid;
+        // If the number of coins is odd, exclude the middle coin
+        else {
+            int leftStart = low;
+            int leftEnd = mid - 1;
+            int rightStart = mid + 1;
+            int rightEnd = high;
+
+            int sumLeft = 0, sumRight = 0;
+            for (int i = leftStart; i <= leftEnd; i++) sumLeft += coins[i];
+            for (int i = rightStart; i <= rightEnd; i++) sumRight += coins[i];
+
+            if (sumLeft < sumRight) {
+                high = leftEnd;
+            } else if (sumRight < sumLeft) {
+                low = rightStart;
+            } else {
+                return mid;  // The middle one is defective
+            }
         }
     }
 
-    return low;  // found defective coin index
-    
+    return low;  // Found the defective coin
 }
+
 
 int main() {
     int n;
