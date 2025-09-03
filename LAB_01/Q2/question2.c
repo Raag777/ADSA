@@ -84,6 +84,8 @@ int main() {
     printf("\nComparisons made:\n");
     printf("Binary Search comparisons: %d\n", binaryComparisons);
     printf("Ternary Search comparisons: %d\n", ternaryComparisons);
+    
 
+    printf("n, BinaryComparisons, TernaryComparisons : %d %d %d", n, binaryComparisons, ternaryComparisons);
     return 0;
 }
