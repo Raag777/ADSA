@@ -14,7 +14,7 @@ double f8(int n) { return 100.0 * n * n + 6 * n; }
 double f9(int n) { return 2.0 * pow(n, 3); }
 double f10(int n) { return pow(n, log2(n)); }
 double f11(int n) { return pow(3, n); }
-double f12(int n) { return pow(2, n); }
+double f12(int n) { return n * pow(2, 32); }
 
 #define NUM_FUNCS 12
 
