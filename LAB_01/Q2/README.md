@@ -1,5 +1,5 @@
 ## Graph Plot
-<img width="900" height="400" alt="image" src="https://github.com/user-attachments/assets/128a1e5c-63f8-4cec-b2f8-58a48aa5620a" />
+<img width="800" height="400" alt="image" src="https://github.com/user-attachments/assets/128a1e5c-63f8-4cec-b2f8-58a48aa5620a" />
 
 
 
