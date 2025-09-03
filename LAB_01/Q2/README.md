@@ -29,4 +29,4 @@ This C program compares the number of comparisons made by **Binary Search** and 
 ### Compile
 
 ```bash
-gcc -o search_compare search_compare.c
+question2.exe 
