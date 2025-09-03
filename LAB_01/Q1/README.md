@@ -19,7 +19,7 @@ The following functions are evaluated:
 - `2n³`
 - `n^(log₂(n))`
 - `3ⁿ`
-- `2ⁿ`
+- `2^32n`
 
 ---
 
