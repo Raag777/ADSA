@@ -41,4 +41,4 @@ The following functions are evaluated:
 ### 🔧 Compile
 
 ```bash
-gcc -o function_compare function_compare.c -lm
+question1.exe
