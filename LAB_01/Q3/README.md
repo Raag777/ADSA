@@ -24,4 +24,4 @@ Given `n` coins where all except one have the same weight, this program finds th
 ### Compile
 
 ```bash
-gcc -o defective_coin defective_coin.c
+question3.exe
