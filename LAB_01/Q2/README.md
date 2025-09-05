@@ -1,9 +1,3 @@
-## Graph Plot
-<img width="720" height="400" alt="image" src="https://github.com/user-attachments/assets/128a1e5c-63f8-4cec-b2f8-58a48aa5620a" />
-
-
-
-
 # 🔍 Binary vs Ternary Search Comparison in C
 
 This C program compares the number of comparisons made by **Binary Search** and **Ternary Search** algorithms when searching for a key in a sorted array. It counts and displays the number of comparisons each algorithm makes, helping visualize their efficiency differences.
@@ -56,7 +50,15 @@ This C program compares the number of comparisons made by **Binary Search** and 
 
 **Time Complexity:**  
 - Best Case: **O(1)**  
-- Worst Case: **O(log₃ n)**  
+- Worst Case: **O(log₃ n)**
+
+## 🧑‍💻 Usage
+### Compile
+
+```bash
+question2.exe
+gnuplot -p plot.gp
+```
 
 ## 📥 Input Format
 Enter size of array: 15
@@ -77,10 +79,9 @@ Ternary Search comparisons: 5
 
 n, BinaryComparisons, TernaryComparisons : 15 2 5
 
-## 🧑‍💻 Usage
-### Compile
+## 📊 Graph Plot
+(After running plot.gp)
 
-```bash
-question2.exe
-gnuplot -p plot.gp
+<img width="720" height="400" alt="image" src="https://github.com/user-attachments/assets/128a1e5c-63f8-4cec-b2f8-58a48aa5620a" />
+
 
