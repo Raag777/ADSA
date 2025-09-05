@@ -67,20 +67,19 @@ Hence, worst-case comparisons grow as:
 
 Θ(log n)
 
-**INPUT**
-
-Enter number of coins: 7
-
-Enter weights of 7 coins: 7 6 7 7 7 7 7
-
-**OUTPUT**
-
-Defective (lighter) coin found at index 1 with weight 6
-
-
 ## 🧑‍💻 Usage
 
 ### Compile
 
 ```bash
 Q3.exe
+```
+
+## 📥 Input Format
+Enter number of coins: 7
+
+Enter weights of 7 coins: 7 6 7 7 7 7 7
+
+## 📤 Output Format
+Defective (lighter) coin found at index 1 with weight 6
+
