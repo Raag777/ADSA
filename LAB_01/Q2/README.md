@@ -29,11 +29,54 @@ This C program compares the number of comparisons made by **Binary Search** and 
 - Suitable for running multiple times with different inputs to gather data for plotting.
 
 ---
+## 🛠️ Algorithms Explained
+
+### Binary Search
+- Compute the middle index `mid`.  
+- If `arr[mid] == key` → key found.  
+- If `key < arr[mid]` → search the left half.  
+- Otherwise → search the right half.  
+- Repeat until the key is found or the range is empty.  
+
+**Time Complexity:**  
+- Best Case: **O(1)**  
+- Worst Case: **O(log₂ n)**  
+
+---
+
+### Ternary Search
+- Compute two midpoints:  
+  - `mid1 = low + (high - low) / 3`  
+  - `mid2 = high - (high - low) / 3`  
+- Compare the key with `arr[mid1]` and `arr[mid2]`.  
+- Decide which of the three parts to search:  
+  - If `key < arr[mid1]` → search left third.  
+  - If `key > arr[mid2]` → search right third.  
+  - Else → search middle third.  
+
+**Time Complexity:**  
+- Best Case: **O(1)**  
+- Worst Case: **O(log₃ n)**  
+
+## 📥 Input Format
+Enter size of array: 15
+Enter 15 sorted elements:
+2 4 6 8 10 12 14 16 18 20 22 24 26 28 30
+Enter key to search: 24
+
+## 📤 Output Format
+Binary Search: Key found at index 11
+Ternary Search: Key found at index 11
+
+Binary Search comparisons: 2
+Ternary Search comparisons: 5
+
+n, BinaryComparisons, TernaryComparisons : 15 2 5
 
 ## 🧑‍💻 Usage
-
 ### Compile
 
 ```bash
 question2.exe
 gnuplot -p plot.gp
+
