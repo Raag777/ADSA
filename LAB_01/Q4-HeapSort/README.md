@@ -32,4 +32,13 @@ It has a time complexity of **O(n log n)** and sorts an array **in-place**.
 
 ### Compile:
 ```bash
-HeapSort.exe
+Q4-HeapSort.exe
+```
+
+## 📥 Input Format
+Enter number of elements: 5
+
+Enter 5 elements: 9 3 7 1 8
+
+## 📤 Output Format
+Sorted array: 1 3 7 8 9 
