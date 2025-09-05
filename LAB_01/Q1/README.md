@@ -24,6 +24,22 @@ The program evaluates the following functions:
 
 ---
 
+## 🖥 Why We Replaced 2³²·n with 2ⁿ
+
+In the initial version, the 12th function was defined as:
+
+f12(n) = 2³² · n
+
+Although the constant `2³²` is very large, this function still grows **linearly** (`Θ(n)`), not exponentially.  
+As a result, it would always remain asymptotically smaller than functions like `n log n`, `n²`, or `n³`.  
+
+Since the purpose of this program is to compare **different growth classes**, we corrected the definition to:
+
+f12(n) = 2ⁿ
+
+This ensures that the function set includes a true **exponential-time function**, making the comparisons meaningful.
+
+
 ## 🛠️ How It Works
 
 1. The user specifies:
@@ -58,6 +74,17 @@ For each `n`, the program prints:
 3. Functions in **increasing order**, along with their values and relation to the average  
 
 ---
+
+### ✅ Example Run
+
+**Input:**
+Enter start value of n: 2
+
+Enter end value of n: 4
+
+Enter step size: 1
+
+**Output (excerpt):**
 
 ## 🧑‍💻 Usage
 
