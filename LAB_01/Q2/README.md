@@ -60,15 +60,19 @@ This C program compares the number of comparisons made by **Binary Search** and 
 
 ## 📥 Input Format
 Enter size of array: 15
+
 Enter 15 sorted elements:
 2 4 6 8 10 12 14 16 18 20 22 24 26 28 30
+
 Enter key to search: 24
 
 ## 📤 Output Format
 Binary Search: Key found at index 11
+
 Ternary Search: Key found at index 11
 
 Binary Search comparisons: 2
+
 Ternary Search comparisons: 5
 
 n, BinaryComparisons, TernaryComparisons : 15 2 5
