@@ -82,6 +82,7 @@ n, BinaryComparisons, TernaryComparisons : 15 2 5
 ## 📊 Graph Plot
 (After running plot.gp)
 
-<img width="720" height="400" alt="image" src="https://github.com/user-attachments/assets/128a1e5c-63f8-4cec-b2f8-58a48aa5620a" />
+<img width="1920" height="1022" alt="image" src="https://github.com/user-attachments/assets/bc62e5a8-f6f4-4b9a-8b0e-60bc47458241" />
+
 
 
