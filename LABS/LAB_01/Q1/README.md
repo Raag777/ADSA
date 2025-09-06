@@ -46,10 +46,7 @@ The program evaluates the following functions:
 ```bash
 Q1.exe
 ```
-
-### ✅ Example Run
-
-**Input:**
+## 📥 Input Format
 
 Enter start value of n: 2
 
@@ -57,7 +54,7 @@ Enter end value of n: 200
 
 Enter step size: 2
 
-**Output:**
+## 📤 Output Format
 
 Sum of each function over given n range:
 
@@ -88,4 +85,3 @@ f12(n*2^32)           Sum Avg = 4.337917e+011
 Ranking of averages (in increasing order):
 
 f1(1/n) < f2(log2(n)) < f5(n^0.51) < f3(12*sqrt(n)) < f4(50*sqrt(n)) < f6(n*log2(n)) < f7(n^2-324) < f8(100n^2+6n) < f9(2n^3) < f12(n*2^32) < f10(n^(log2(n))) < f11(3^n)
-
