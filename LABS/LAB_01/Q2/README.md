@@ -56,7 +56,7 @@ This C program compares the number of comparisons made by **Binary Search** and 
 ### Compile
 
 ```bash
-question2.exe
+Q2.exe
 gnuplot -p plot.gp
 ```
 
