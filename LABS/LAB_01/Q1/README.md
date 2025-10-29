@@ -1,87 +1,121 @@
-# Function Growth Comparison
+# Q1 – Function Growth Order (ADSA Lab 01)
 
-This C program compares the growth of multiple mathematical functions over a given range of `n`.  
-It calculates the **average value** of each function across the range, and then ranks them in **increasing order**.
+## 📘 Problem Statement
+Using implementation, place the given functions in a list by **increasing order of growth**.  
+That means, in the final list, if function *f* comes before function *g*, then **f ∈ O(g)**.  
+In case *f ∈ Θ(g)*, either one can come first.  
+Also, explicitly state which pairs of functions belong to the same Θ-class.
 
 ---
 
-## 📌 Features
-- Implements **12 mathematical functions** such as `1/n`, `log2(n)`, `sqrt(n)`, `n^2`, `n log n`, `3^n`, etc.
-- Accepts **user input** for:
-  - Start value of `n`
-  - End value of `n`
-  - Step size
-- Computes the **average value** of each function over the input range.
+## 🧮 Given Functions
+
+| No | Function |
+|----|-----------|
+| f1 | n log₂n |
+| f2 | 12√n |
+| f3 | 1/n |
+| f4 | n^(log₂n) |
+| f5 | 100n² + 6n |
+| f6 | n^0.51 |
+| f7 | n² − 324 |
+| f8 | 50√n |
+| f9 | 2n³ |
+| f10 | log₂n |
+| f11 | 3ⁿ |
+| f12 | 2³²n |
+
+---
+
+## 📂 Files in This Folder
+
+| File Name | Description |
+|------------|-------------|
+| **growth_order.c** | Implements all 12 given functions and calculates their increasing order of growth. It also displays Θ-equivalent function pairs and prints the full chain of function growths. |
+| **test_growth_order.c** | Contains automated unit tests using the [MUnit](https://nemequ.github.io/munit/) framework to validate correctness of the implementation in `growth_order.c`. |
+| **munit.c / munit.h** | The MUnit testing framework files. |
+
+---
+
+## 🧠 growth_order.c Overview
+
+### ✅ Features:
+- Defines all 12 mathematical functions.
+- Evaluates their values for a given large `n` (e.g., `n = 1000`).
+- Sorts the functions based on their evaluated values to determine order of growth.
 - Displays:
-  - The **average value per function**
-  - The **ranking in increasing order** (e.g., `f1 < f2 < f3 < ...`)
+  - Ordered list of functions.
+  - Θ-equivalent function pairs.
+  - Full chain of increasing growth order.
 
 ---
 
-## 📂 Functions Implemented
-
-The program evaluates the following functions:
-
-| Function ID | Formula              |
-|-------------|----------------------|
-| f1          | 1 / n                |
-| f2          | log2(n)              |
-| f3          | 12 * √n              |
-| f4          | 50 * √n              |
-| f5          | n^0.51               |
-| f6          | n * log2(n)          |
-| f7          | n² - 324             |
-| f8          | 100n² + 6n           |
-| f9          | 2n³                  |
-| f10         | n^(log2(n))          |
-| f11         | 3^n                  |
-| f12         | n * 2^32             |
-
----
-
-## 🧑‍💻 Usage
-
-### 🔧 Compile
+### ⚙️ How to Compile and Run
 
 ```bash
-Q1.exe
+gcc growth_order.c -o growth_order -lm
+./growth_order  
 ```
-## 📥 Input Format
+---
 
-Enter start value of n: 2
 
-Enter end value of n: 200
+### 🖥️ Example Output
 
-Enter step size: 2
+```bash
+Function growth order (for n = 1000):
+ 1. 1/n           = 1.00e-03
+ 2. log₂n         = 9.97e+00
+ 3. n^0.51        = 1.09e+02
+ 4. 12√n          = 3.79e+02
+ 5. 50√n          = 1.58e+03
+ 6. n log₂n       = 9.97e+03
+ 7. n² - 324      = 9.97e+05
+ 8. 100n² + 6n    = 1.00e+08
+ 9. 2n³           = 2.00e+09
+10. 2³²n          = 4.29e+12
+11. n^(log n)     = 1.00e+30
+12. 3ⁿ            = 1.37e+477
 
-## 📤 Output Format
+Possible Θ-equivalent pairs:
+ - (12√n, 50√n)  => Θ(√n)
+ - (100n² + 6n, n² - 324)  => Θ(n²)
 
-Sum of each function over given n range:
+Chain form of increasing growth order:
+1/n  <  log₂n  <  n^0.51  <  12√n  <  50√n  <  n log₂n  <  n²−324  <  100n²+6n  <  2n³  <  2³²n  <  n^(log n)  <  3ⁿ
+```
 
-f1(1/n)               Sum Avg = 2.593689e-002
+---
 
-f2(log2(n))           Sum Avg = 6.247650e+000
+## 🧪 test_growth_order.c Overview
 
-f3(12*sqrt(n))        Sum Avg = 1.139510e+002
+### ✅ Tests Implemented:
+- Monotonic Growth Test
+  - Verifies that each increasing function grows with n.
+  - Ensures 1/n decreases as n increases.
+- Θ-Equivalence Test
+- Checks that:
+  - (12√n, 50√n) are Θ(√n)
+  - (100n² + 6n, n² − 324) are Θ(n²)
+- Chain Order Test
+  - Validates the final sorted order of all 12 functions for correct increasing growth.
 
-f4(50*sqrt(n))        Sum Avg = 4.747960e+002
+---
 
-f5(n^0.51)            Sum Avg = 9.946968e+000
+### ⚙️ How to Compile and Run Tests
 
-f6(n*log2(n))         Sum Avg = 6.999130e+002
+```bash
+gcc test_growth_order.c munit.c -o test_growth_order -lm
+./test_growth_order
+```
 
-f7(n^2-324)           Sum Avg = 1.321000e+004
+---
 
-f8(100n^2+6n)         Sum Avg = 1.354006e+006
+## 🧾 Sample Test Output
 
-f9(2n^3)              Sum Avg = 4.080400e+006
-
-f10(n^(log2(n)))      Sum Avg = 2.607373e+016
-
-f11(3^n)              Sum Avg = 2.988157e+093
-
-f12(n*2^32)           Sum Avg = 4.337917e+011
-
-Ranking of averages (in increasing order):
-
-f1(1/n) < f2(log2(n)) < f5(n^0.51) < f3(12*sqrt(n)) < f4(50*sqrt(n)) < f6(n*log2(n)) < f7(n^2-324) < f8(100n^2+6n) < f9(2n^3) < f12(n*2^32) < f10(n^(log2(n))) < f11(3^n)
+```bash
+Running test suite with seed 0x15534978...
+/function-growth-tests/growth        [ OK    ]
+/function-growth-tests/theta         [ OK    ]
+/function-growth-tests/chain         [ OK    ]
+3 of 3 (100%) tests successful, 0 (0%) test skipped.
+```
