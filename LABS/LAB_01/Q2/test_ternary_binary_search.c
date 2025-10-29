@@ -44,7 +44,7 @@ int ternarySearch(int arr[], int low, int high, int key) {
     return -1;
 }
 
-// ---------- MUNIT TEST CASES ----------
+//  MUNIT TEST CASES 
 
 // Test 1: Key present in array
 static MunitResult test_key_present(const MunitParameter params[], void* data) {
@@ -124,7 +124,7 @@ static MunitResult test_comparison_counts(const MunitParameter params[], void* d
     return MUNIT_OK;
 }
 
-// ---------- TEST SUITE ----------
+//  TEST SUITE 
 
 static MunitTest tests[] = {
     {"/key_present", test_key_present, NULL, NULL, MUNIT_TEST_OPTION_NONE, NULL},

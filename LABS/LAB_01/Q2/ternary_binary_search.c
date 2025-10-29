@@ -5,7 +5,7 @@
 int binaryComparisons = 0;
 int ternaryComparisons = 0;
 
-// ---------- Binary Search ----------
+//  Binary Search 
 int binarySearch(int arr[], int n, int key) {
     int low = 0, high = n - 1;
     while (low <= high) {
@@ -21,7 +21,7 @@ int binarySearch(int arr[], int n, int key) {
     return -1;
 }
 
-// ---------- Ternary Search ----------
+//  Ternary Search 
 int ternarySearch(int arr[], int low, int high, int key) {
     while (low <= high) {
         int mid1 = low + (high - low) / 3;
@@ -45,7 +45,7 @@ int ternarySearch(int arr[], int low, int high, int key) {
     return -1;
 }
 
-// ---------- MAIN ----------
+//  MAIN 
 int main() {
     int n, key;
 
@@ -91,14 +91,14 @@ int main() {
     printf("Binary Search comparisons: %d\n", binaryComparisons);
     printf("Ternary Search comparisons: %d\n", ternaryComparisons);
 
-    // ---------- Write data to output.dat ----------
+    //  Write data to output.dat 
     FILE *fp = fopen("output.dat", "a"); // append mode
     if (fp != NULL) {
         fprintf(fp, "%d %d %d\n", n, binaryComparisons, ternaryComparisons);
         fclose(fp);
-        printf("\n Data saved to output.dat\n");
+        printf("\nData saved to output.dat\n");
     } else {
-        printf("\n Failed to open output.dat for writing\n");
+        printf("\nFailed to open output.dat for writing\n");
     }
 
     free(arr);
