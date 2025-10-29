@@ -1,88 +1,139 @@
-# 🔍 Binary vs Ternary Search Comparison in C
+# 🔍 Q2 - Binary vs Ternary Search Comparison in C (ADSA Lab 01)
 
-This C program compares the number of comparisons made by **Binary Search** and **Ternary Search** algorithms when searching for a key in a sorted array. It counts and displays the number of comparisons each algorithm makes, helping visualize their efficiency differences.
+## 📘 Problem Statement
+This project implements and compares **Binary Search** and **Ternary Search** algorithms in C.  
+It measures and displays the number of comparisons made by each algorithm while searching for a given key in a sorted array.  
+The results can also be visualized graphically using **Gnuplot**, and verified automatically using **MUnit tests**.
 
 ---
 
-## 📋 Overview
+## 🧠 Overview
 
-- **Binary Search** splits the search space into two halves each iteration.
-- **Ternary Search** splits the search space into three parts each iteration.
-- The program counts the exact number of comparisons performed by each search for a given input.
-- This allows empirical comparison of the two search methods.
+- **Binary Search** divides the search space into 2 halves each iteration.  
+- **Ternary Search** divides it into 3 nearly equal parts each iteration.  
+- Both algorithms are implemented and compared based on the **number of comparisons** made.  
+- Data is automatically written to **`output.dat`** for graph plotting using **`plot.gp`**.
 
 ---
 
 ## ⚙️ Features
 
-- Reads size of sorted array and elements from the user.
-- Reads the search key.
-- Performs both binary and ternary search on the array.
-- Outputs the index of the key if found.
-- Displays the number of comparisons each search made.
-- Suitable for running multiple times with different inputs to gather data for plotting.
+- Takes input of array size, sorted elements, and key to search.  
+- Performs both **Binary** and **Ternary** search operations.  
+- Displays index if the key is found.  
+- Prints the total number of comparisons for each search.  
+- Appends results `(n, BinaryComparisons, TernaryComparisons)` to **`output.dat`**.  
+- Includes **MUnit-based test file** to verify correctness through automated test cases.  
 
 ---
+
 ## 🛠️ Algorithms Explained
 
-### Binary Search
-- Compute the middle index `mid`.  
-- If `arr[mid] == key` → key found.  
-- If `key < arr[mid]` → search the left half.  
-- Otherwise → search the right half.  
-- Repeat until the key is found or the range is empty.  
+### 🔹 Binary Search
+1. Compute middle index:  
+   `mid = low + (high - low) / 2`
+2. If `arr[mid] == key` → key found.  
+3. If `key < arr[mid]` → search left half.  
+4. Else → search right half.
 
-**Time Complexity:**  
-- Best Case: **O(1)**  
-- Worst Case: **O(log₂ n)**  
+**Complexity:**  
+- Best Case → **O(1)**  
+- Worst Case → **O(log₂ n)**  
 
 ---
 
-### Ternary Search
-- Compute two midpoints:  
-  - `mid1 = low + (high - low) / 3`  
-  - `mid2 = high - (high - low) / 3`  
-- Compare the key with `arr[mid1]` and `arr[mid2]`.  
-- Decide which of the three parts to search:  
-  - If `key < arr[mid1]` → search left third.  
-  - If `key > arr[mid2]` → search right third.  
-  - Else → search middle third.  
+### 🔸 Ternary Search
+1. Compute two midpoints:  
+   - `mid1 = low + (high - low) / 3`  
+   - `mid2 = high - (high - low) / 3`
+2. Compare `key` with both midpoints.  
+3. Depending on range:  
+   - `key < arr[mid1]` → search left third  
+   - `key > arr[mid2]` → search right third  
+   - Else → search middle third
 
-**Time Complexity:**  
-- Best Case: **O(1)**  
-- Worst Case: **O(log₃ n)**
+**Complexity:**  
+- Best Case → **O(1)**  
+- Worst Case → **O(log₃ n)**  
+
+---
 
 ## 🧑‍💻 Usage
-### Compile
+
+### ▶️ Compile and Run Main Program
 
 ```bash
-Q2.exe
-gnuplot -p plot.gp
+gcc ternary_binary_search.c -o main
+./main
 ```
 
-## 📥 Input Format
-Enter size of array: 15
+### ▶️ Compile and Run MUnit Tests
 
+```bash
+gcc test_ternary_binary_search.c munit.c -o test_search
+./test_search
+```
+
+---
+
+### 📥 Input Example
+
+```bash
+Enter size of array: 15
 Enter 15 sorted elements:
 2 4 6 8 10 12 14 16 18 20 22 24 26 28 30
-
 Enter key to search: 24
+```
 
-## 📤 Output Format
+---
+
+### 📤 Output Example
+
+```bash
+=== Results ===
 Binary Search: Key found at index 11
-
 Ternary Search: Key found at index 11
 
+Comparisons made:
 Binary Search comparisons: 2
-
 Ternary Search comparisons: 5
 
 n, BinaryComparisons, TernaryComparisons : 15 2 5
 
+Data saved to output.dat
+```
+
+---
+
+### 🧪 MUnit Testing Output
+
+```bash
+Running test suite with seed 0x15534978...
+/ternary_binary_search_tests/key_present        [ OK    ] 
+/ternary_binary_search_tests/key_not_present    [ OK    ] 
+/ternary_binary_search_tests/first_element      [ OK    ] 
+/ternary_binary_search_tests/last_element       [ OK    ] 
+/ternary_binary_search_tests/comparison_counts  [ OK    ] 
+5 of 5 (100%) tests successful, 0 (0%) test skipped.
+```
+
+---
+
 ## 📊 Graph Plot
-(After running plot.gp)
 
-<img width="1920" height="1022" alt="image" src="https://github.com/user-attachments/assets/bc62e5a8-f6f4-4b9a-8b0e-60bc47458241" />
+After collecting multiple runs (which append data to **`output.dat`**), you can visualize the comparison using **Gnuplot**.
 
+### 🧩 Steps
 
+Run your program multiple times with increasing n (e.g., 5, 7, 10, 15, 20).
+
+Then plot results with:
+
+```bash
+gnuplot -p plot.gp
+```
+
+### 📈 Sample Graph Output
+
+<img width="1920" height="1023" alt="image" src="https://github.com/user-attachments/assets/fded45f6-e682-4c00-9b95-16982583c872" />
 
