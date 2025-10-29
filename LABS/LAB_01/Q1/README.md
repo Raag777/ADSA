@@ -1,10 +1,7 @@
 # Q1 – Function Growth Order (ADSA Lab 01)
 
 ## 📘 Problem Statement
-Using implementation, place the given functions in a list by **increasing order of growth**.  
-That means, in the final list, if function *f* comes before function *g*, then **f ∈ O(g)**.  
-In case *f ∈ Θ(g)*, either one can come first.  
-Also, explicitly state which pairs of functions belong to the same Θ-class.
+Using implementation, place the given functions in a list by **increasing order of growth**. That means, in the final list, if function *f* comes before function *g*, then **f ∈ O(g)**. In case **f ∈ Θ(g)**, either one can come first. Also, explicitly state which pairs of functions belong to the same Θ-class.
 
 ---
 
@@ -39,7 +36,7 @@ Also, explicitly state which pairs of functions belong to the same Θ-class.
 
 ## 🧠 growth_order.c Overview
 
-### ✅ Features:
+### ⚙️ Features:
 - Defines all 12 mathematical functions.
 - Evaluates their values for a given large `n` (e.g., `n = 1000`).
 - Sorts the functions based on their evaluated values to determine order of growth.
@@ -48,15 +45,13 @@ Also, explicitly state which pairs of functions belong to the same Θ-class.
   - Θ-equivalent function pairs.
   - Full chain of increasing growth order.
 
----
 
-### ⚙️ How to Compile and Run
+### ▶️ How to Compile and Run
 
 ```bash
 gcc growth_order.c -o growth_order -lm
 ./growth_order  
 ```
----
 
 
 ### 🖥️ Example Output
@@ -88,7 +83,7 @@ Chain form of increasing growth order:
 
 ## 🧪 test_growth_order.c Overview
 
-### ✅ Tests Implemented:
+### ⚙️ Tests Implemented:
 - Monotonic Growth Test
   - Verifies that each increasing function grows with n.
   - Ensures 1/n decreases as n increases.
@@ -99,18 +94,16 @@ Chain form of increasing growth order:
 - Chain Order Test
   - Validates the final sorted order of all 12 functions for correct increasing growth.
 
----
 
-### ⚙️ How to Compile and Run Tests
+### ▶️ How to Compile and Run Tests
 
 ```bash
 gcc test_growth_order.c munit.c -o test_growth_order -lm
 ./test_growth_order
 ```
 
----
 
-## 🧾 Sample Test Output
+### 🧾 Sample Test Output
 
 ```bash
 Running test suite with seed 0x15534978...
