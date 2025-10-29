@@ -1,8 +1,27 @@
 # 🪙 Q3 – Find the Defective (Lighter) Coin (ADSA Lab 01)
 
-## 📘 Problem Statement
-This C program identifies the **defective (lighter) coin** among a set of coins using a **Divide and Conquer** approach inspired by **binary search**.  
-It assumes all coins have **identical weights** except one that is **lighter**.
+## 📘 Problem Description
+
+You are working as a **Quality-Control Engineer** for a coin manufacturing company.  
+The company needs to ensure that all coins have **exactly identical weights**.
+
+During inspection, you notice that one worker might have accidentally **over-shaped one coin**, making it possibly **lighter** than others — or maybe not defective at all.
+
+Your task is to find **which coin (if any)** is defective (lighter) using a **divide and conquer algorithm**, which must run in  
+**O(log₂ n + c)** time complexity.
+
+You are provided with a **balance weighing scale** and a set of `n` coin weights.
+
+---
+
+## 🎯 Objective
+
+Write a C program to:
+
+1. Find the defective (lighter) coin’s index, if present.
+2. Report *no defective coin* if all have the same weight.
+3. Implement the logic using **Divide and Conquer**.
+4. Verify correctness using **unit testing (MUnit framework)**.
 
 ---
 
@@ -14,14 +33,20 @@ It assumes all coins have **identical weights** except one that is **lighter**.
 
 ---
 
-## 🛠️ Algorithm Steps
-1. **Divide** the coins into two halves.
-2. **Compare** the total weight of the left half and right half:
-   - If left < right → defective coin is in **left half**.
-   - If right < left → defective coin is in **right half**.
-   - If equal → the **middle coin** (if any) is defective.
-3. **Repeat recursively** until only one coin remains.
-4. Return its **index and weight**.
+## 🛠️ Algorithm Overview
+
+The algorithm follows a **divide and conquer** approach similar to binary search:
+
+1. **Divide** the set of coins into two halves.
+2. **Compare** the total weight of both halves using a balance scale.
+3. **Recurse** into the lighter half (if any).
+4. **Handle odd-sized groups** by excluding the middle coin for comparison.
+5. If both sides are equal:
+   - Either all coins are perfect → return `-1`
+   - Or the middle coin is defective → return its index.
+
+### 🔹 Time Complexity
+- Each comparison halves the problem size → **O(log₂ n + c)**
 
 ---
 
