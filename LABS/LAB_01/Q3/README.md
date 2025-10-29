@@ -84,28 +84,6 @@ gcc Q3_defective_coin.c -DMAIN_PROGRAM -o Q3
 
 ---
 
-## 📥 Input Format
-
-```bash
-Enter number of coins: 7
-Enter weights of 7 coins:
-7 6 7 7 7 7 7
-```
-
----
-
-## 📤 Output Format
- 
- ```bash
-Defective (lighter) coin found at index 1 with weight 6
-```
-
----
-
-## 🧪 Unit Testing (MUnit)
-
-To verify correctness, run the MUnit test suite:
-
 ### ▶️ Compile and Run MUnit Tests
 
 ```bash
@@ -115,7 +93,25 @@ gcc test_Q3_defective_coin.c munit.c -o test_Q3
 
 ---
 
-### 🧾 Sample Output
+### 📥 Input Format
+
+```bash
+Enter number of coins: 7
+Enter weights of 7 coins:
+7 6 7 7 7 7 7
+```
+
+---
+
+### 📤 Output Format
+ 
+ ```bash
+Defective (lighter) coin found at index 1 with weight 6
+```
+
+---
+
+### 🧪 MUnit Testing Output
 
 ```bash
 Running test suite with seed 0x15534978...
