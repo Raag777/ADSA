@@ -45,6 +45,7 @@ Using implementation, place the given functions in a list by **increasing order 
   - Θ-equivalent function pairs.
   - Full chain of increasing growth order.
 
+---
 
 ### ▶️ How to Compile and Run
 
@@ -53,6 +54,7 @@ gcc growth_order.c -o growth_order -lm
 ./growth_order  
 ```
 
+---
 
 ### 🖥️ Example Output
 
@@ -94,6 +96,7 @@ Chain form of increasing growth order:
 - Chain Order Test
   - Validates the final sorted order of all 12 functions for correct increasing growth.
 
+---
 
 ### ▶️ How to Compile and Run Tests
 
@@ -102,6 +105,7 @@ gcc test_growth_order.c munit.c -o test_growth_order -lm
 ./test_growth_order
 ```
 
+---
 
 ### 🧾 Sample Test Output
 
