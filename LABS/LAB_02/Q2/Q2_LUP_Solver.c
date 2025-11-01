@@ -88,16 +88,30 @@ void print_vector(const char *name, double v[N]) {
 
 #ifndef TEST_MODE
 int main() {
-    double A[N][N] = {
-        {2, 3, 1},
-        {4, 7, -1},
-        {-2, 4, 5}
-    };
-    double b[N] = {1, 6, -3};
+    double A[N][N];
+    double b[N];
     double x[N];
     int P[N];
 
-    printf("=== LUP Solver ===\n");
+    printf("=== LUP Solver ===\n\n");
+
+    // Input for matrix A
+    printf("Enter the elements of matrix A (%dx%d):\n", N, N);
+    for (int i = 0; i < N; i++) {
+        for (int j = 0; j < N; j++) {
+            printf("A[%d][%d]: ", i + 1, j + 1);
+            scanf("%lf", &A[i][j]);
+        }
+    }
+
+    // Input for vector b
+    printf("\nEnter the elements of vector b (%d values):\n", N);
+    for (int i = 0; i < N; i++) {
+        printf("b[%d]: ", i + 1);
+        scanf("%lf", &b[i]);
+    }
+
+    printf("\nInput Matrix and Vector:\n");
     print_matrix("A", A);
     print_vector("b", b);
     printf("\n");
