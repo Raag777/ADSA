@@ -1,6 +1,7 @@
 # 🔍 Q2 - Binary vs Ternary Search Comparison in C (ADSA Lab 01)
 
 ## 📘 Problem Statement
+
 This project implements and compares **Binary Search** and **Ternary Search** algorithms in C.  
 It measures and displays the number of comparisons made by each algorithm while searching for a given key in a sorted array.  
 The results can also be visualized graphically using **Gnuplot**, and verified automatically using **MUnit tests**.
@@ -30,6 +31,7 @@ The results can also be visualized graphically using **Gnuplot**, and verified a
 ## 🛠️ Algorithms Explained
 
 ### 🔹 Binary Search
+
 1. Compute middle index:  
    `mid = low + (high - low) / 2`
 2. If `arr[mid] == key` → key found.  
@@ -43,6 +45,7 @@ The results can also be visualized graphically using **Gnuplot**, and verified a
 ---
 
 ### 🔸 Ternary Search
+
 1. Compute two midpoints:  
    - `mid1 = low + (high - low) / 3`  
    - `mid2 = high - (high - low) / 3`
@@ -100,22 +103,18 @@ Data saved to output.dat
 
 ## 🧩 MUnit Test Code Overview
 
-The test_ternary_binary_search.c file uses the MUnit testing framework to automatically validate both search algorithms.
-Each test ensures correctness, edge case handling, and comparison counting.
+The **`test_ternary_binary_search.c`** file uses the **MUnit testing framework** to automatically validate both search algorithms.  
+Each test ensures correctness, edge case handling, and comparison counting.  
 
 ### 🔍 Test Cases Overview:
 
-/key_present – Checks if both searches correctly find an existing element.
+1. **`/key_present`** – Checks if both searches correctly find an existing element.  
+2. **`/key_not_present`** – Confirms both return `-1` when the key isn’t in the array.  
+3. **`/first_element`** – Tests when the key is at the beginning of the array.  
+4. **`/last_element`** – Tests when the key is at the end of the array.  
+5. **`/comparison_counts`** – Ensures the comparison counters increment properly and remain positive.  
 
-/key_not_present – Confirms both return -1 when the key isn’t in the array.
-
-/first_element – Tests when the key is at the beginning of the array.
-
-/last_element – Tests when the key is at the end of the array.
-
-/comparison_counts – Ensures the comparison counters increment properly and remain positive.
-
-All test results are displayed with [ OK ] if successful, giving a clear verification of functionality.
+All test results are displayed with `[ OK ]` if successful, giving a clear verification of functionality.
 
 ---
 
