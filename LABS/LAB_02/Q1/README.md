@@ -80,13 +80,17 @@ gcc Q1_Strassen.c -o Q1_Strassen
 ### 📥 Input Example
 
 ```bash
-Enter size of square matrices: 2
+Enter size of square matrices: 4
 Enter elements of Matrix A:
-1 2
-3 4
+1 2 3 4
+5 6 7 8
+9 0 1 2
+3 4 5 6
 Enter elements of Matrix B:
-5 6
-7 8
+6 5 4 3
+2 1 0 9
+8 7 6 5
+4 3 2 1
 ```
 
 ---
@@ -95,8 +99,10 @@ Enter elements of Matrix B:
 
 ```bash
 Resultant Matrix (A x B):
-19 22
-43 50
+50 40 30 40
+130 104 78 112
+70 58 46 34
+90 72 54 76
 ```
 
 ---
