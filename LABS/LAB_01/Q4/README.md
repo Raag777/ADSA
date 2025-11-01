@@ -6,6 +6,7 @@ Heap Sort is a **comparison-based**, **in-place**, and **O(n log n)** sorting al
 ---
 
 ## 📘 Objective
+
 To implement and test **Heap Sort** for sorting an array of integers in ascending order.  
 The testing ensures correctness for multiple cases including sorted, reverse, single-element, and duplicate arrays.
 
@@ -22,6 +23,7 @@ The testing ensures correctness for multiple cases including sorted, reverse, si
 ---
 
 ## ⚙️ Algorithm Steps
+
 1. **Build a Max Heap** from the input array.  
 2. **Swap** the first (largest) element with the last unsorted element.  
 3. **Reduce heap size** and call `heapify()` again to restore the heap property.  
