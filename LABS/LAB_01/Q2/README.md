@@ -98,15 +98,6 @@ Data saved to output.dat
 
 ---
 
-### ▶️ Compile and Run MUnit Tests
-
-```bash
-gcc test_ternary_binary_search.c munit.c -o test_search
-./test_search
-```
-
----
-
 ## 🧩 MUnit Test Code Overview
 
 The test_ternary_binary_search.c file uses the MUnit testing framework to automatically validate both search algorithms.
@@ -125,6 +116,15 @@ Each test ensures correctness, edge case handling, and comparison counting.
 /comparison_counts – Ensures the comparison counters increment properly and remain positive.
 
 All test results are displayed with [ OK ] if successful, giving a clear verification of functionality.
+
+---
+
+### ▶️ Compile and Run MUnit Tests
+
+```bash
+gcc test_ternary_binary_search.c munit.c -o test_search
+./test_search
+```
 
 ---
 
