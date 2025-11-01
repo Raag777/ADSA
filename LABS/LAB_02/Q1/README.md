@@ -9,6 +9,16 @@ The implementation is verified using the **MUnit testing framework** to ensure c
 
 ---
 
+## 📂 Code Files
+
+| File Name | Description |
+|------------|-------------|
+| `Q1_Strassen.c` | Contains the implementation of the **Strassen Matrix Multiplication** algorithm along with helper functions for matrix addition, subtraction, and display. |
+| `test_Q1_Strassen.c` | Contains **MUnit** test cases that automatically verify the correctness of Strassen’s algorithm across multiple scenarios (2x2, 3x3, single element, zero matrix, and identity matrix). |
+| `munit.c` / `munit.h` | The testing framework used for all unit tests (already included in the ADSA Lab setup). |
+
+---
+
 ## ⚙️ Algorithm Overview
 
 **Strassen’s Algorithm** recursively divides the matrices into submatrices and computes the product using 7 multiplications and several additions/subtractions.
