@@ -8,6 +8,18 @@ The results can also be visualized graphically using **Gnuplot**, and verified a
 
 ---
 
+## 📂 Code Files
+
+| File Name | Description |
+|------------|-------------|
+| `ternary_binary_search.c` | Contains the implementation of **Binary Search** and **Ternary Search** algorithms. It counts the number of comparisons for each search and appends results to `output.dat` for graph plotting. |
+| `test_ternary_binary_search.c` | Includes **MUnit** test cases to automatically verify the correctness of both search algorithms. Tests cover scenarios like key present, key absent, first/last element, and comparison count validation. |
+| `munit.c` / `munit.h` | The **MUnit testing framework** used to run all automated test cases (already provided in the ADSA Lab setup). |
+| `output.dat` | Data file where each program run appends results in the format: `n BinaryComparisons TernaryComparisons`, used for graph plotting. |
+| `plot.gp` | **Gnuplot script** used to generate a visual comparison graph between Binary and Ternary Search from the data in `output.dat`. |
+
+---
+
 ## 🧠 Overview
 
 - **Binary Search** divides the search space into 2 halves each iteration.  
