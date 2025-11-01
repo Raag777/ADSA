@@ -30,7 +30,7 @@ static int vecs_close(double a[N], double b[N]) {
     return 1;
 }
 
-/* ---------- TEST 1: regular system (Ax=b) ---------- */
+/*  TEST 1: regular system (Ax=b)  */
 static MunitResult test_regular_system(const MunitParameter params[], void* user_data) {
     (void)params; (void)user_data;
 
@@ -57,7 +57,7 @@ static MunitResult test_regular_system(const MunitParameter params[], void* user
     return MUNIT_OK;
 }
 
-/* ---------- TEST 2: identity ---------- */
+/*  TEST 2: identity  */
 static MunitResult test_identity_matrix(const MunitParameter params[], void* user_data) {
     (void)params; (void)user_data;
 
@@ -84,7 +84,7 @@ static MunitResult test_identity_matrix(const MunitParameter params[], void* use
     return MUNIT_OK;
 }
 
-/* ---------- TEST 3: singular matrix ---------- */
+/*  TEST 3: singular matrix  */
 static MunitResult test_singular_matrix(const MunitParameter params[], void* user_data) {
     (void)params; (void)user_data;
 
@@ -102,7 +102,7 @@ static MunitResult test_singular_matrix(const MunitParameter params[], void* use
     return MUNIT_OK;
 }
 
-/* ---------- TEST 4: negative values ---------- */
+/*  TEST 4: negative values  */
 static MunitResult test_negative_values(const MunitParameter params[], void* user_data) {
     (void)params; (void)user_data;
 
@@ -129,7 +129,7 @@ static MunitResult test_negative_values(const MunitParameter params[], void* use
     return MUNIT_OK;
 }
 
-/* ---------- TEST 5: random invertible ---------- */
+/*  TEST 5: random invertible  */
 static MunitResult test_random_invertible(const MunitParameter params[], void* user_data) {
     (void)params; (void)user_data;
 
@@ -156,7 +156,7 @@ static MunitResult test_random_invertible(const MunitParameter params[], void* u
     return MUNIT_OK;
 }
 
-/* ---------- Test registration ---------- */
+/*  Test registration  */
 static MunitTest tests[] = {
     { "/regular_system", test_regular_system, NULL, NULL, MUNIT_TEST_OPTION_NONE, NULL },
     { "/identity_matrix", test_identity_matrix, NULL, NULL, MUNIT_TEST_OPTION_NONE, NULL },
