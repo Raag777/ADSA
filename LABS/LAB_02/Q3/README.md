@@ -2,14 +2,12 @@
 
 ## 📘 Problem Statement
 
-Implement an algorithm in **C** to perform **LUP Decomposition** on a square matrix **A** and solve the linear system **Ax = b**.  
+Implement an algorithm in **C** to perform **LUP Decomposition** on a square matrix **A**.
 The program decomposes **A** into three matrices:
 
 - **L** → Lower triangular matrix (with 1s on the diagonal)  
 - **U** → Upper triangular matrix  
 - **P** → Permutation matrix (records row swaps during pivoting)
-
-After decomposition, the program solves for **x** using **forward** and **backward substitution**.
 
 ---
 
@@ -17,8 +15,8 @@ After decomposition, the program solves for **x** using **forward** and **backwa
 
 | File Name | Description |
 |------------|-------------|
-| `Q3_LUP_Decomposition.c` | Contains the implementation of the LUP decomposition algorithm, forward/backward substitution, and matrix display functions. |
-| `test_Q3_LUP_Decomposition.c` | Contains **MUnit** test cases that automatically verify multiple LUP decomposition and solving scenarios. |
+| `Q3_LUP_Decomposition.c` | Contains the implementation of the LUP decomposition algorithm. |
+| `test_Q3_LUP_Decomposition.c` | Contains **MUnit** test cases that automatically verify multiple LUP decomposition scenarios. |
 | `munit.c` / `munit.h` | Lightweight C testing framework for automated test validation (already provided in the ADSA lab setup). |
 
 ---
@@ -35,20 +33,8 @@ It uses **partial pivoting** to maintain numerical stability and handle row swap
    - Applies partial pivoting and updates the permutation vector **P**.  
    - Returns `-1` if the matrix is **singular** or nearly singular.
 
-2. **forwardSubstitution()**  
-   - Solves `L * y = P * b` using the lower-triangular part of **A**.
-
-3. **backwardSubstitution()**  
-   - Solves `U * x = y` using the upper-triangular part of **A**.
-
-4. **LUP_Solve()**  
-   - Combines the two substitution steps to solve **Ax = b**.
-
-5. **printMatrix()** and **printVector()**  
-   - Utility functions to neatly display matrices and vectors.
-
-6. **Main Function (Guarded by `#ifndef TEST_MODE`)**  
-   - Accepts user input for **A** and **b**, performs decomposition, and displays **L**, **U**, **P**, and the final **solution vector x**.  
+2. **Main Function (Guarded by `#ifndef TEST_MODE`)**  
+   - Accepts user input for **A**, performs decomposition, and displays **L**, **U**, **P**.  
    - Excluded during MUnit testing for smooth automation.
 
 ---
@@ -98,25 +84,17 @@ U matrix:
 
 Permutation vector P:
 2 0 1
-
-Solution vector x:
-   -5.5000     4.5000    -1.0000
 ```
 
 ---
 
 ## 🧩 MUnit Test Code Overview
 
-The **MUnit** testing file (`test_Q3_LUP_Decomposition.c`) automatically validates the correctness of **LUP decomposition** and the solving process for various types of matrices.  
-It uses assertions to verify that the computed **solution vector (x)** matches the **expected result** or that singular matrices are correctly identified.
+The **MUnit** testing file (`test_Q3_LUP_Decomposition.c`) automatically validates the correctness of **LUP decomposition**.
 
 ### 🧠 Key Components
 
-#### 1. Helper Function
-- `vectors_are_close()` – Compares two vectors element-wise within a tolerance (`EPS`) to confirm numerical accuracy.
-
-
-#### 2. Test Cases
+#### 1. Test Cases
 
 | Test Case | Description |
 |------------|-------------|
@@ -127,16 +105,14 @@ It uses assertions to verify that the computed **solution vector (x)** matches t
 | **Test 5 – Matrix with Negative Elements** | Tests handling of negative and near-singular matrix values. |
 
 
-#### 3. Assertions and Validation
+#### 2. Assertions and Validation
 
 - Each test performs:
   1. **LUP Decomposition** using `LUP_Decompose()`
-  2. **Solving** the system using `LUP_Solve()`
-  3. **Validation** of results using `munit_assert_int()` and `munit_assert_true()`
+  2. **Validation** of results using `munit_assert_int()`.
 
 ```bash
 munit_assert_int(result, ==, 0);
-munit_assert_true(vectors_are_close(x, expected_x, n));
 ```
 If all assertions pass →  ```[ OK ]```
 
