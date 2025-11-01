@@ -37,6 +37,13 @@ Using implementation, place the given functions in a list by **increasing order 
 
 ## 🧠 Overview
 
+This program implements and compares the growth rates of 
+12 mathematical functions. It determines their relative 
+order of growth (Big-O hierarchy) by evaluating them for 
+a large input `n` (e.g., n = 1000).
+
+---
+
 ### ⚙️ Features:
 
 - Defines all 12 mathematical functions.
