@@ -26,6 +26,7 @@ Write a C program to:
 ---
 
 ## ⚙️ Features
+
 - Efficiently detects the defective coin using **group-wise comparisons**.
 - Works for **both odd and even** number of coins.
 - Returns the **index and weight** of the defective coin.
@@ -46,6 +47,7 @@ The algorithm follows a **divide and conquer** approach similar to binary search
    - Or the middle coin is defective → return its index.
 
 ### 🔹 Time Complexity
+
 - Each comparison halves the problem size → **O(log₂ n + c)**
 
 ---
@@ -129,23 +131,20 @@ Defective (lighter) coin found at index 1 with weight 6
 
 ## 🧩 MUnit Test Code Overview
 
-The test_Q3_defective_coin.c file uses the MUnit framework to automatically verify the correctness of the program.
+The **`test_Q3_defective_coin.c`** file uses the **MUnit framework** to automatically verify the correctness of the program.
 
-Each test case provides a specific set of coin weights and checks whether the findDefective() function returns the correct index of the lighter coin (or -1 if all are perfect).
+Each test case provides a specific set of coin weights and checks whether the `findDefective()` function returns the correct index of the lighter coin (or `-1` if all are perfect).
 
 ### 🧪 Test Cases Included:
 
-test_defective_present → Defective coin in the middle.
-
-test_all_perfect → All coins have equal weights (no defective).
-
-test_first_defective → Defective coin at the beginning.
-
-test_last_defective → Defective coin at the end.
-
-test_odd_count_middle_defective → Odd number of coins with a middle defective coin.
+1. **test_defective_present** → Defective coin in the middle.  
+2. **test_all_perfect** → All coins have equal weights (no defective).  
+3. **test_first_defective** → Defective coin at the beginning.  
+4. **test_last_defective** → Defective coin at the end.  
+5. **test_odd_count_middle_defective** → Odd number of coins with a middle defective coin.
 
 Each test uses:
+
  ```bash
 munit_assert_int(result, ==, expected_index);
  ```
@@ -153,6 +152,7 @@ munit_assert_int(result, ==, expected_index);
 to confirm that the output matches the expected index.
 
 If all assertions pass, the test suite reports:
+
  ```bash
 [ OK ]
  ```
