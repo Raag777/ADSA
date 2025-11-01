@@ -1,13 +1,13 @@
 #include <stdio.h>
 #include <math.h>
 
-#define MAX 10   // maximum matrix size
-#define EPS 1e-9 // tolerance for singular check
+#define MAX 10   // Maximum matrix size
+#define EPS 1e-9 // Small value to check for singularity
 
-//  LUP Decomposition 
+// Function to perform LUP Decomposition
 int LUP_Decompose(double A[MAX][MAX], int P[MAX], int n) {
     for (int i = 0; i < n; i++)
-        P[i] = i; // Initialize permutation
+        P[i] = i;  // Initialize permutation matrix
 
     for (int k = 0; k < n; k++) {
         // Find pivot
@@ -33,9 +33,9 @@ int LUP_Decompose(double A[MAX][MAX], int P[MAX], int n) {
                 A[k][j] = A[pivot][j];
                 A[pivot][j] = temp;
             }
-            int temp = P[k];
+            int tempP = P[k];
             P[k] = P[pivot];
-            P[pivot] = temp;
+            P[pivot] = tempP;
         }
 
         // Eliminate entries below the pivot
@@ -50,56 +50,20 @@ int LUP_Decompose(double A[MAX][MAX], int P[MAX], int n) {
     return 0;
 }
 
-// //  Forward Substitution (L*y = P*b) 
-// void forwardSubstitution(double A[MAX][MAX], int P[MAX], double b[MAX], double y[MAX], int n) {
-//     for (int i = 0; i < n; i++) {
-//         y[i] = b[P[i]];
-//         for (int j = 0; j < i; j++) {
-//             y[i] -= A[i][j] * y[j];
-//         }
-//     }
-// }
-
-// //  Backward Substitution (U*x = y) 
-// void backwardSubstitution(double A[MAX][MAX], double y[MAX], double x[MAX], int n) {
-//     for (int i = n - 1; i >= 0; i--) {
-//         double sum = y[i];
-//         for (int j = i + 1; j < n; j++) {
-//             sum -= A[i][j] * x[j];
-//         }
-//         x[i] = sum / A[i][i];
-//     }
-// }
-
-// //  Solve Ax = b using LUP 
-// void LUP_Solve(double A[MAX][MAX], int P[MAX], double b[MAX], double x[MAX], int n) {
-//     double y[MAX];
-//     forwardSubstitution(A, P, b, y, n);
-//     backwardSubstitution(A, y, x, n);
-// }
-
-// //  Display Matrix 
-// void printMatrix(double A[MAX][MAX], int n) {
-//     for (int i = 0; i < n; i++) {
-//         for (int j = 0; j < n; j++) {
-//             printf("%10.4f ", A[i][j]);
-//         }
-//         printf("\n");
-//     }
-// }
-
-// //  Display Vector 
-// void printVector(double v[MAX], int n) {
-//     for (int i = 0; i < n; i++) {
-//         printf("%10.4f ", v[i]);
-//     }
-//     printf("\n");
-// }
+// Function to print a matrix
+void printMatrix(double A[MAX][MAX], int n) {
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            printf("%10.4f ", A[i][j]);
+        }
+        printf("\n");
+    }
+}
 
 #ifndef TEST_MODE
 int main() {
     int n;
-    double A[MAX][MAX], b[MAX], x[MAX];
+    double A[MAX][MAX];
     int P[MAX];
 
     printf("Enter matrix size (n x n): ");
@@ -110,18 +74,13 @@ int main() {
         for (int j = 0; j < n; j++)
             scanf("%lf", &A[i][j]);
 
-    printf("Enter vector b (%d elements):\n", n);
-    for (int i = 0; i < n; i++)
-        scanf("%lf", &b[i]);
-
     if (LUP_Decompose(A, P, n) != 0)
         return 1;
 
-    // Display combined LU matrix
-    printf("\nCombined LU matrix:\n");
+    printf("\nCombined LU Matrix (stored together):\n");
     printMatrix(A, n);
 
-    // Display L and U matrices separately
+    // Separate L and U matrices for display
     double L[MAX][MAX], U[MAX][MAX];
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < n; j++) {
@@ -138,22 +97,16 @@ int main() {
         }
     }
 
-    printf("\nL matrix:\n");
+    printf("\nL (Lower Triangular) Matrix:\n");
     printMatrix(L, n);
 
-    printf("\nU matrix:\n");
+    printf("\nU (Upper Triangular) Matrix:\n");
     printMatrix(U, n);
 
-    printf("\nPermutation vector P:\n");
+    printf("\nPermutation Vector P:\n");
     for (int i = 0; i < n; i++)
         printf("%d ", P[i]);
     printf("\n");
-
-    // // Solve for x
-    // LUP_Solve(A, P, b, x, n);
-
-    // printf("\nSolution vector x:\n");
-    // printVector(x, n);
 
     return 0;
 }
