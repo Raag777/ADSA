@@ -1,6 +1,7 @@
 # Q1 – Function Growth Order (ADSA Lab 01)
 
 ## 📘 Problem Statement
+
 Using implementation, place the given functions in a list by **increasing order of growth**. That means, in the final list, if function *f* comes before function *g*, then **f ∈ O(g)**. In case **f ∈ Θ(g)**, either one can come first. Also, explicitly state which pairs of functions belong to the same Θ-class.
 
 ---
@@ -34,9 +35,10 @@ Using implementation, place the given functions in a list by **increasing order 
 
 ---
 
-## 🧠 growth_order.c Overview
+## 🧠 Overview
 
 ### ⚙️ Features:
+
 - Defines all 12 mathematical functions.
 - Evaluates their values for a given large `n` (e.g., `n = 1000`).
 - Sorts the functions based on their evaluated values to determine order of growth.
@@ -47,7 +49,9 @@ Using implementation, place the given functions in a list by **increasing order 
 
 ---
 
-### ▶️ How to Compile and Run
+## 🧑‍💻 Usage
+
+### ▶️ Compile and Run Main Program
 
 ```bash
 gcc growth_order.c -o growth_order -lm
@@ -83,22 +87,45 @@ Chain form of increasing growth order:
 
 ---
 
-## 🧪 test_growth_order.c Overview
+## 🧩 MUnit Test Code Overview
+
+This test file verifies the correctness of `growth_order.c` using the MUnit testing framework.
 
 ### ⚙️ Tests Implemented:
-- Monotonic Growth Test
-  - Verifies that each increasing function grows with n.
-  - Ensures 1/n decreases as n increases.
-- Θ-Equivalence Test
-- Checks that:
-  - (12√n, 50√n) are Θ(√n)
-  - (100n² + 6n, n² − 324) are Θ(n²)
-- Chain Order Test
-  - Validates the final sorted order of all 12 functions for correct increasing growth.
+
+It includes three main test suites:
+
+1. Monotonic Growth Test
+
+- Verifies that all functions with increasing complexity 
+  (e.g., log n, n^0.51, n log n, n², etc.) grow with `n`.
+- Ensures the function 1/n decreases as `n` increases.
+
+Test name: /function-growth-tests/growth
+
+2. Θ-Equivalence Test
+
+- Validates that the following function pairs belong to 
+  the same Θ-class:
+
+    (12√n, 50√n)        => Θ(√n)
+    (100n² + 6n, n²−324) => Θ(n²)
+
+Test name: /function-growth-tests/theta
+
+
+3. Chain Order Test
+
+- Verifies that all 12 functions are sorted correctly 
+  by increasing order of growth.
+- Confirms the order:
+  1/n < log₂n < n^0.51 < √n < n log n < n² < n³ < 2³²n < n^(log n) < 3ⁿ
+
+Test name: /function-growth-tests/chain
 
 ---
 
-### ▶️ How to Compile and Run Tests
+### ▶️ Compile and Run MUnit Tests
 
 ```bash
 gcc test_growth_order.c munit.c -o test_growth_order -lm
@@ -107,7 +134,7 @@ gcc test_growth_order.c munit.c -o test_growth_order -lm
 
 ---
 
-### 🧾 Sample Test Output
+### 🧪 MUnit Testing Output
 
 ```bash
 Running test suite with seed 0x15534978...
