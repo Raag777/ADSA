@@ -110,14 +110,11 @@ Solution vector x:
 The **MUnit** testing file (`test_Q3_LUP_Decomposition.c`) automatically validates the correctness of **LUP decomposition** and the solving process for various types of matrices.  
 It uses assertions to verify that the computed **solution vector (x)** matches the **expected result** or that singular matrices are correctly identified.
 
----
-
 ### 🧠 Key Components
 
 #### 1. Helper Function
 - `vectors_are_close()` – Compares two vectors element-wise within a tolerance (`EPS`) to confirm numerical accuracy.
 
----
 
 #### 2. Test Cases
 
@@ -129,7 +126,6 @@ It uses assertions to verify that the computed **solution vector (x)** matches t
 | **Test 4 – 2×2 Matrix** | Verifies solver accuracy for smaller systems with known results. |
 | **Test 5 – Matrix with Negative Elements** | Tests handling of negative and near-singular matrix values. |
 
----
 
 #### 3. Assertions and Validation
 
