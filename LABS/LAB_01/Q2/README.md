@@ -155,6 +155,8 @@ Then plot results with:
 gnuplot -p plot.gp
 ```
 
+---
+
 ### 📈 Sample Graph Output
 
 <img width="1920" height="1023" alt="image" src="https://github.com/user-attachments/assets/fded45f6-e682-4c00-9b95-16982583c872" />
