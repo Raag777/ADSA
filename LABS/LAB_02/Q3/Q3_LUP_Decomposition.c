@@ -50,51 +50,51 @@ int LUP_Decompose(double A[MAX][MAX], int P[MAX], int n) {
     return 0;
 }
 
-//  Forward Substitution (L*y = P*b) 
-void forwardSubstitution(double A[MAX][MAX], int P[MAX], double b[MAX], double y[MAX], int n) {
-    for (int i = 0; i < n; i++) {
-        y[i] = b[P[i]];
-        for (int j = 0; j < i; j++) {
-            y[i] -= A[i][j] * y[j];
-        }
-    }
-}
+// //  Forward Substitution (L*y = P*b) 
+// void forwardSubstitution(double A[MAX][MAX], int P[MAX], double b[MAX], double y[MAX], int n) {
+//     for (int i = 0; i < n; i++) {
+//         y[i] = b[P[i]];
+//         for (int j = 0; j < i; j++) {
+//             y[i] -= A[i][j] * y[j];
+//         }
+//     }
+// }
 
-//  Backward Substitution (U*x = y) 
-void backwardSubstitution(double A[MAX][MAX], double y[MAX], double x[MAX], int n) {
-    for (int i = n - 1; i >= 0; i--) {
-        double sum = y[i];
-        for (int j = i + 1; j < n; j++) {
-            sum -= A[i][j] * x[j];
-        }
-        x[i] = sum / A[i][i];
-    }
-}
+// //  Backward Substitution (U*x = y) 
+// void backwardSubstitution(double A[MAX][MAX], double y[MAX], double x[MAX], int n) {
+//     for (int i = n - 1; i >= 0; i--) {
+//         double sum = y[i];
+//         for (int j = i + 1; j < n; j++) {
+//             sum -= A[i][j] * x[j];
+//         }
+//         x[i] = sum / A[i][i];
+//     }
+// }
 
-//  Solve Ax = b using LUP 
-void LUP_Solve(double A[MAX][MAX], int P[MAX], double b[MAX], double x[MAX], int n) {
-    double y[MAX];
-    forwardSubstitution(A, P, b, y, n);
-    backwardSubstitution(A, y, x, n);
-}
+// //  Solve Ax = b using LUP 
+// void LUP_Solve(double A[MAX][MAX], int P[MAX], double b[MAX], double x[MAX], int n) {
+//     double y[MAX];
+//     forwardSubstitution(A, P, b, y, n);
+//     backwardSubstitution(A, y, x, n);
+// }
 
-//  Display Matrix 
-void printMatrix(double A[MAX][MAX], int n) {
-    for (int i = 0; i < n; i++) {
-        for (int j = 0; j < n; j++) {
-            printf("%10.4f ", A[i][j]);
-        }
-        printf("\n");
-    }
-}
+// //  Display Matrix 
+// void printMatrix(double A[MAX][MAX], int n) {
+//     for (int i = 0; i < n; i++) {
+//         for (int j = 0; j < n; j++) {
+//             printf("%10.4f ", A[i][j]);
+//         }
+//         printf("\n");
+//     }
+// }
 
-//  Display Vector 
-void printVector(double v[MAX], int n) {
-    for (int i = 0; i < n; i++) {
-        printf("%10.4f ", v[i]);
-    }
-    printf("\n");
-}
+// //  Display Vector 
+// void printVector(double v[MAX], int n) {
+//     for (int i = 0; i < n; i++) {
+//         printf("%10.4f ", v[i]);
+//     }
+//     printf("\n");
+// }
 
 #ifndef TEST_MODE
 int main() {
@@ -149,11 +149,11 @@ int main() {
         printf("%d ", P[i]);
     printf("\n");
 
-    // Solve for x
-    LUP_Solve(A, P, b, x, n);
+    // // Solve for x
+    // LUP_Solve(A, P, b, x, n);
 
-    printf("\nSolution vector x:\n");
-    printVector(x, n);
+    // printf("\nSolution vector x:\n");
+    // printVector(x, n);
 
     return 0;
 }
