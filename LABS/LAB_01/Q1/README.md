@@ -31,7 +31,7 @@ Using implementation, place the given functions in a list by **increasing order 
 |------------|-------------|
 | `growth_order.c` | Implements 12 mathematical functions and compares their **growth rates** by evaluating their values for a large `n`. It sorts them in **increasing order of growth**, identifies **Θ-equivalent pairs**, and displays a clear **growth chain** from smallest to largest. |
 | `test_growth_order.c` | Contains **MUnit test cases** that validate the correctness of all functions defined in `growth_order.c`. Tests include verifying monotonic growth, checking Θ-equivalent pairs, and confirming the correct **increasing growth chain**. |
-| `munit.c` / `munit.h` | The **MUnit testing framework** used for compiling and executing automated unit tests to ensure accuracy of growth order comparisons. |
+| `munit.c` / `munit.h` | The **MUnit testing framework** used for compiling and executing automated unit tests to ensure accuracy of growth order comparisons (already provided in the ADSA Lab setup). |
 
 ---
 
