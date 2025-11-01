@@ -43,7 +43,7 @@ C22 = M1 - M2 + M3 + M6
 
 ---
 
-## 🧑‍💻 Code Overview
+## 🛠️ Code Overview
 
 - Implements the Strassen matrix multiplication algorithm **without using `malloc`** (using static 2D arrays).
 - Handles matrices of any size by padding them to the **next power of 2**.
@@ -92,15 +92,17 @@ Resultant Matrix (A x B):
 ---
 
 ## 🧩 MUnit Test Code Overview
+ 
+This file uses the **MUnit testing framework** to verify the correctness of `strassen()` for different cases.
 
-- Includes **MUnit test cases** to automatically verify correctness.
-- The macro `#define TEST_MODE` disables the main function in `Q1_Strassen.c` during testing.
-- Tests include:
-  1. ✅ **2×2 Matrix Multiplication**
-  2. ✅ **3×3 Matrix (Padding check)**
-  3. ✅ **1×1 Single Element Matrix**
-  4. ✅ **Zero Matrix**
-  5. ✅ **Identity Matrix**
+- **`#define TEST_MODE`** disables the main function in `Q1_Strassen.c` during testing.  
+- Multiple test cases validate correctness:
+  - ✅ **2x2 matrices** – basic multiplication check  
+  - ✅ **3x3 matrices** – checks zero-padding handling  
+  - ✅ **1x1 single element** – base case verification  
+  - ✅ **Zero matrix** – ensures multiplication by zero works  
+  - ✅ **Identity matrix** – ensures A × I = A  
+- Each test calls `strassen()` and compares results using `munit_assert_int()`.
 
 ---
 
