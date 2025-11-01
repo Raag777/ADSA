@@ -109,15 +109,6 @@ gcc Q3_defective_coin.c -DMAIN_PROGRAM -o Q3
 
 ---
 
-### ▶️ Compile and Run MUnit Tests
-
-```bash
-gcc test_Q3_defective_coin.c munit.c -o test_Q3
-./test_Q3
-```
-
----
-
 ### 📥 Input Format
 
 ```bash
@@ -132,6 +123,49 @@ Enter weights of 7 coins:
  
  ```bash
 Defective (lighter) coin found at index 1 with weight 6
+```
+
+---
+
+## 🧩 MUnit Test Code Overview
+
+The test_Q3_defective_coin.c file uses the MUnit framework to automatically verify the correctness of the program.
+
+Each test case provides a specific set of coin weights and checks whether the findDefective() function returns the correct index of the lighter coin (or -1 if all are perfect).
+
+### 🧪 Test Cases Included:
+
+test_defective_present → Defective coin in the middle.
+
+test_all_perfect → All coins have equal weights (no defective).
+
+test_first_defective → Defective coin at the beginning.
+
+test_last_defective → Defective coin at the end.
+
+test_odd_count_middle_defective → Odd number of coins with a middle defective coin.
+
+Each test uses:
+ ```bash
+munit_assert_int(result, ==, expected_index);
+ ```
+
+to confirm that the output matches the expected index.
+
+If all assertions pass, the test suite reports:
+ ```bash
+[ OK ]
+ ```
+
+for every case, indicating successful verification.
+
+---
+
+### ▶️ Compile and Run MUnit Tests
+
+```bash
+gcc test_Q3_defective_coin.c munit.c -o test_Q3
+./test_Q3
 ```
 
 ---
