@@ -12,13 +12,13 @@ The testing ensures correctness for multiple cases including sorted, reverse, si
 
 ---
 
-## 📂 Files Included
+## 📂 Code Files
 
-| File | Description |
-|------|--------------|
-| `Q4_heapsort.c` | Contains the Heap Sort implementation (with optional `main()` for manual input). |
-| `test_Q4_heapsort.c` | MUnit test cases verifying Heap Sort’s correctness. |
-| `munit.c` / `munit.h` | External MUnit framework files used for testing. |
+| File Name | Description |
+|------------|-------------|
+| `Q4_heapsort.c` | Contains the implementation of the **Heap Sort algorithm** and an optional `main()` function for manual input/output. |
+| `test_Q4_heapsort.c` | Contains **MUnit** test cases that automatically validate multiple Heap Sort scenarios including basic, sorted, reverse, single-element, and duplicate arrays. |
+| `munit.c` / `munit.h` | The **MUnit testing framework** used for automated unit testing (already provided in the ADSA Lab setup). |
 
 ---
 
