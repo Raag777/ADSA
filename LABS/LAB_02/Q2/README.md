@@ -2,9 +2,9 @@
 
 ## 📘 Problem Statement
 
-Implement an algorithm in **C** to solve a system of linear equations **Ax = b** using **LUP Decomposition**.  
-The program should decompose the coefficient matrix **A** into **L (Lower)**, **U (Upper)**, and **P (Permutation)** matrices,  
-then solve for **x** using **forward** and **backward substitution**.
+Implement a **C program** to solve a system of linear equations **Ax = b** using the **LUP Decomposition** method.  
+The goal is to factor the matrix **A** into **L (Lower triangular)**, **U (Upper triangular)**, and **P (Permutation)** matrices,  
+then use these factors to find the solution vector **x** efficiently and accurately.
 
 ---
 
@@ -12,35 +12,38 @@ then solve for **x** using **forward** and **backward substitution**.
 
 | File Name | Description |
 |------------|-------------|
-| `Q2_LUP_Solver.c` | Contains the implementation of LUP decomposition, solver, and display functions. |
-| `test_Q2_LUP_Solver.c` | Contains **MUnit** test cases that automatically validate multiple LUP solver scenarios. |
-| `munit.c` / `munit.h` | The testing framework used for unit tests (already provided in ADSA Lab setup). |
+| `Q2_LUP_Solver.c` | Implements the LUP decomposition and solver functions with user input for matrix **A** and vector **b**. |
+| `test_Q2_LUP_Solver.c` | Contains automated unit tests written using the **MUnit** testing framework to validate the solver. |
+| `munit.c` / `munit.h` | Unit testing framework used to run and verify the test cases (provided in the lab setup). |
 
 ---
 
 ## 🧠 Code Overview
 
-This program performs **LUP Decomposition** and solves linear systems without using dynamic memory allocation (`malloc`, `calloc`, etc.).  
-It uses **partial pivoting** for numerical stability and avoids singular matrices.
+This program uses **LUP Decomposition** to solve the system of equations `Ax = b` with high numerical stability by applying **partial pivoting**.  
+It allows **manual user input** for both the matrix `A` and vector `b` and prints the solution in a clean formatted output.
 
-### 🔍 Steps in the code:
+### 🔹 Key Functions
 
-1. **LUP_Decompose()**  
-   - Decomposes matrix **A** into **L** and **U** using Gaussian elimination with partial pivoting.  
-   - Stores row swaps in the **P** permutation array.  
-   - Returns `-1` if the matrix is singular (non-invertible).
+1. **`LUP_Decompose(double A[N][N], int P[N])`**
+   - Performs LUP decomposition on the given matrix `A`.
+   - Uses **partial pivoting** to improve stability.
+   - Returns `-1` if the matrix is **singular** or **nearly singular**.
 
-2. **LUP_Solve()**  
-   - Uses the decomposed matrices **L**, **U**, and **P** to solve for **x** in **Ax = b**.  
-   - Performs **forward substitution** for `Ly = Pb`, then **backward substitution** for `Ux = y`.
+2. **`LUP_Solve(double A[N][N], int P[N], double b[N], double x[N])`**
+   - Solves for the vector `x` using forward and backward substitution.
+   - Executes:
+     - **Forward Substitution** → Solves `Ly = Pb`
+     - **Backward Substitution** → Solves `Ux = y`
 
-3. **print_matrix()** and **print_vector()**  
-   - Utility functions to display matrices and vectors neatly.
+3. **`print_matrix()` & `print_vector()`**
+   - Helper functions to display matrices and vectors neatly.
 
-4. **Main Function (when not in test mode)**  
-   - Defines a 3×3 matrix `A` and vector `b`.  
-   - Performs decomposition and solving, then displays **A**, **b**, and **x** clearly.  
-   - Wrapped in `#ifndef TEST_MODE` so that MUnit tests can run without conflict.
+4. **`main()`**
+   - Takes manual input for **matrix A** and **vector b**.
+   - Performs decomposition and solving.
+   - Displays the input, decomposition, and final result clearly.
+   - Wrapped inside `#ifndef TEST_MODE` so it won’t conflict during MUnit testing.
 
 ---
 
@@ -55,10 +58,34 @@ gcc Q2_LUP_Solver.c -o Q2_LUP_Solver
 
 ---
 
-### 🧾 Sample Output (Normal Execution)
+### 📥 Input Example
 
 ```bash
 === LUP Solver ===
+
+Enter the elements of matrix A (3x3):
+A[1][1]: 2
+A[1][2]: 3
+A[1][3]: 1
+A[2][1]: 4
+A[2][2]: 7
+A[2][3]: -1
+A[3][1]: -2
+A[3][2]: 4
+A[3][3]: 5
+
+Enter the elements of vector b (3 values):
+b[1]: 1
+b[2]: 6
+b[3]: -3
+```
+
+---
+
+### 📤 Output Example
+
+```bash
+Input Matrix and Vector:
 A =
    2.0000   3.0000   1.0000
    4.0000   7.0000  -1.0000
@@ -73,26 +100,29 @@ x = [ 0.0556 0.6667 -1.1111 ]
 
 ## 🧩 MUnit Code Overview
 
-The **MUnit testing file** automatically validates the correctness of the LUP solver using multiple test cases.  
-It ensures that the computed solution vector **x** satisfies **A·x ≈ b** within a small error margin for each scenario.
+The **`test_Q2_LUP_Solver.c`** file validates the correctness of the LUP solver through **five test cases**.  
+It confirms that for each input system, the computed solution vector **x** satisfies the equation **A·x ≈ b** (within a tolerance limit).
 
-### 🧠 Key Components:
+### 🧠 Components Overview
 
 1. **Helper Functions**
-   - `copy_mat()` – Copies one matrix to another to preserve the original input.
-   - `mat_vec_mul()` – Multiplies matrix `A` with vector `x` to verify results.
-   - `vecs_close()` – Checks if two vectors are nearly equal (within a tolerance `EPS`).
+   - `copy_mat()` → Copies one matrix to another for preserving input.
+   - `mat_vec_mul()` → Multiplies a matrix by a vector (`A·x`) to verify output.
+   - `vecs_close()` → Compares two vectors element-wise with a tolerance (`EPS`).
 
 2. **Test Cases**
-   - `/regular_system` → Tests a standard 3×3 system of equations.  
-   - `/identity_matrix` → Ensures that identity matrix returns `x = b`.  
-   - `/singular_matrix` → Checks that singular matrices are detected correctly.  
-   - `/negative_values` → Verifies correctness for negative and mixed values.  
-   - `/random_invertible` → Tests solver on a random invertible matrix.
 
-3. **Assertion Logic**
-   - Each test decomposes a copy of the matrix `A`, solves for `x`, and checks that `A·x ≈ b` using MUnit assertions.  
-   - If the solver produces correct results, the test passes; otherwise, it reports the mismatch.
+   | Test Name | Description |
+   |------------|-------------|
+   | `/regular_system` | Verifies the solver on a normal invertible matrix. |
+   | `/identity_matrix` | Ensures that for an identity matrix, solution `x` equals `b`. |
+   | `/singular_matrix` | Detects singular matrices correctly by returning `-1`. |
+   | `/negative_values` | Tests solver behavior with negative and mixed numbers. |
+   | `/random_invertible` | Validates correctness on a randomly invertible matrix. |
+
+3. **Assertions Used**
+   - `munit_assert_int()` → Checks if function return values are as expected.  
+   - `munit_assert_true()` → Validates vector equality using approximate comparison.
 
 ---
 
