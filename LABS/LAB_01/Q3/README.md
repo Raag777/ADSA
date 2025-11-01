@@ -25,6 +25,16 @@ Write a C program to:
 
 ---
 
+## 📂 Code Files
+
+| File Name | Description |
+|------------|-------------|
+| `Q3_defective_coin.c` | Implements the **Divide and Conquer** algorithm to identify the defective (lighter) coin among `n` coins. Handles both even and odd cases efficiently and displays the index and weight of the defective coin. |
+| `test_Q3_defective_coin.c` | Contains **MUnit** test cases to validate the correctness of the defective coin detection algorithm. Tests include cases like all coins perfect, first/last defective, middle defective (odd count), and random distributions. |
+| `munit.c` / `munit.h` | The **MUnit testing framework** used to execute and report automated unit test results (included in ADSA Lab setup). |
+
+---
+
 ## ⚙️ Features
 
 - Efficiently detects the defective coin using **group-wise comparisons**.
