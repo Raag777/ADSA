@@ -9,6 +9,10 @@ The program decomposes **A** into three matrices:
 - **U** → Upper Triangular Matrix  
 - **P** → Permutation Vector (records row swaps during pivoting)
 
+The decomposition satisfies the fundamental relation:
+
+> **P × A = L × U**
+
 ---
 
 ## 📂 Code Files
