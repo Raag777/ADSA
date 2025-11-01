@@ -90,7 +90,7 @@ Permutation Vector P:
 
 ---
 
-## 🧪 MUnit Test Code Overview
+## 🧩 MUnit Test Code Overview
 
 The **MUnit** test file `test_Q3_LUP_Decomposition.c` automatically validates the correctness and stability of the **LUP decomposition** algorithm.
 
@@ -105,7 +105,7 @@ The **MUnit** test file `test_Q3_LUP_Decomposition.c` automatically validates th
 | **Test 5 – Negative Elements** | Validates algorithm stability with negative entries. |
 
 
-### 🧩 Key Testing Functions
+### 🧪 Key Testing Functions
 
 - `LUP_Decompose()` – Called directly for validation.  
 - `munit_assert_int()` – Ensures expected output (`0` for success, `-1` for singularity).  
