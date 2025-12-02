@@ -27,7 +27,7 @@ Both approaches are tested thoroughly using the **MUnit testing framework**.
 
 This program implements **two binary search functions**:
 
-#### 🔹 `binarySearchIterative(int arr[], int n, int key)`
+🔹 **`binarySearchIterative(int arr[], int n, int key)`**
 - Implements binary search using **loop iteration**
 - Efficient and avoids overhead of recursion
 - Returns:
@@ -35,13 +35,13 @@ This program implements **two binary search functions**:
   - `-1` if key is not found
 
 
-#### 🔹 `binarySearchRecursive(int arr[], int low, int high, int key)`
+🔹 **`binarySearchRecursive(int arr[], int low, int high, int key)`**
 - Implements binary search using **recursion**
 - Elegant and simple to understand
 - Follows the classic divide-and-conquer pattern
 
 
-#### 🔹 `main()` (User Input Mode)
+🔹 **`main()`** (User Input Mode)
 - Only compiled when **TEST_MODE is OFF**
 - Allows:
   - User to input the size of array  
@@ -95,11 +95,7 @@ Recursive Binary Search Index: 4
 
 ## 🧩 MUnit Code Overview
 
-The `test_Q1a_binary_search.c` file includes **9 automated test cases**  
-to validate both the **iterative** and **recursive** implementations of Binary Search.  
-These tests ensure correctness, boundary handling, and robustness across various scenarios.
-
-
+The `test_Q1a_binary_search.c` file includes **9 automated test cases** to validate both the **iterative** and **recursive** implementations of Binary Search. These tests ensure correctness, boundary handling, and robustness across various scenarios.
 
 ### 🔎 Test Coverage
 
