@@ -1,4 +1,4 @@
-# 🌳 Q4(b) – B-Tree [Insert + Delete + Search + Traversal] (ADSA Lab 03)
+# 🌳 Q4(b) – B-Tree (ADSA Lab 03)
 
 ## 📘 Problem Statement
 Write a program that performs the following operations on a **B-Tree (minimum degree T = 3)**:
