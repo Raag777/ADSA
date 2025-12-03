@@ -1,22 +1,23 @@
 # 🧮 Q5(b) – Dijkstra’s Algorithm (ADSA Lab 03)
 
 ## 📘 Problem Statement
-Write a program to compute **Single Source Shortest Paths (SSSP)** using **Dijkstra’s Algorithm** for a weighted graph represented by an **Adjacency Matrix**.
+Write a program to compute the **Single Source Shortest Path (SSSP)** using **Dijkstra’s Algorithm** on a weighted graph represented using an **Adjacency Matrix**.
 
-The program:
-- Accepts `n × n` adjacency matrix  
-- Treats `0` as **no edge** (except diagonal)
-- Computes **shortest distance from source vertex to all other vertices**
+The program must:
+- Accept the number of vertices  
+- Accept a `n × n` adjacency matrix  
+- Treat `0` as **no edge**, except for diagonal elements  
+- Compute **shortest distance from the given source vertex to all vertices**
 
 ---
 
 ## 📂 Code Files
 
 | File Name | Description |
-|----------|-------------|
-| `Q5b_Dijkstra.c` | Full implementation of Dijkstra’s algorithm using adjacency matrix. |
-| `test_Q5b_Dijkstra.c` | Automated unit tests using the MUnit testing framework. |
-| `munit.c` / `munit.h` | Testing framework used for writing and executing unit tests. |
+|-----------|-------------|
+| `Q5b_Dijkstra.c` | Full implementation of Dijkstra’s SSSP algorithm. Includes a standalone `dijkstra()` function used by both main program & MUnit tests. |
+| `test_Q5b_Dijkstra.c` | Automated MUnit test cases validating the correctness of the Dijkstra algorithm. |
+| `munit.c` / `munit.h` | MUnit testing framework used to execute the test suite. |
 
 ---
 
@@ -45,46 +46,29 @@ Matrix rule:
 
 ---
 
-### 🔹 **Initialization**
-
-Before running Dijkstra:
-
-```c
-dist[i] = (cost[src][i] == 0 ? INF : cost[src][i]);
-visited[i] = 0;
-```
-
-Source vertex:
-
-```c
-dist[src] = 0;
-visited[src] = 1;
-```
-
----
-
 ### 🔹 **Dijkstra Algorithm Steps**
 
-The program follows the standard Dijkstra steps:
+Here standalone function is:
 
-1. **Initialize:**
-   - `dist[i]` = edge cost from source to i  
-   - `visited[i] = 0`  
-   - `dist[src] = 0`  
-   - `visited[src] = 1`
+```c
+void dijkstra(int n, int cost[MAX][MAX], int src, int dist[MAX]);
+```
 
-2. **Find unvisited vertex with minimum distance**
-3. **Mark it as visited**
-4. **Relax edges**
+**Steps Performed:**
+1. Initialize distance & visited arrays
+2. Replace missing edges (`0`) with `INF`
+3. Repeat for `n - 1` iterations:
+   - Select vertex `u` with minimum `dist[u]` not visited
+   - Mark as visited
+   - Relax edges:
 
-   Update distance if a shorter path is found:
-   
-   ```c
-   if (!visited[v] && cost[u][v] && dist[u] + cost[u][v] < dist[v])
+```c
+if (!visited[v] && cost[u][v] &&
+    dist[u] + cost[u][v] < dist[v]) {
+
     dist[v] = dist[u] + cost[u][v];
-   ```
-
-This repeats for **n − 1 iterations**.
+}
+```
 
 ---
 
@@ -149,24 +133,31 @@ To 2 = 6
 
 ## 🧩 MUnit Code Overview
 
-The file **`test_Q5b_Dijkstra.c`** contains automated MUnit test cases that verify the correctness of the **Dijkstra’s Shortest Path Algorithm** implementation.
+The file **`test_Q5b_Dijkstra.c`** contains automated MUnit test cases that validate the correctness of the `dijkstra()` function implemented in **Q5b_Dijkstra.c**.  
+These tests ensure that the shortest-path values computed by the algorithm are accurate across multiple graph structures.
 
-### 🔍 What the test suite checks
+### 🔍 What the Test Suite Checks
 
 | Test Name | Purpose |
 |----------|----------|
-| `/simple_graph` | Verifies shortest path output for a small fully connected graph. |
-| `/disconnected_graph` | Ensures the algorithm correctly returns **INF** for unreachable vertices. |
-| `/zero_weight_edges` | Validates handling of graphs where valid edges have weight zero. |
-| `/symmetric_vs_asymmetric` | Ensures distances differ for directed vs. undirected style inputs. |
+| **`/basic`** | Tests Dijkstra on a fully connected graph and verifies exact shortest-path results. |
+| **`/unreachable`** | Ensures unreachable vertices correctly receive distance = **INF (99999)**. |
+| **`/zero_edge`** | Tests behavior when some edges have weight `0` (treated as no-edge except diagonal). |
+
+Each test sets up a fixed graph (adjacency matrix), calls:
+
+```c
+dijkstra(n, cost, src, dist);
+```
 
 ### ✔️ Assertions Used
 
 - `munit_assert_int()` – Validates correctness of computed shortest distances.
 
-- `munit_assert_not_null()` – Confirms arrays and graph structures are properly initialized.
-
-- `munit_assert_true()` – Used to check algorithm properties (e.g., INF cases, distance improvements).
+These checks ensure:
+- Correct minimum-path computation
+- Proper handling of unreachable vertices
+- Proper handling of zero-cost edges
 
 ---
 
