@@ -80,8 +80,7 @@ Choose: 1
 ### 📤 Output Example
 
 ```bash
-Sorted Array: 
-1 3 4 7 9
+Sorted Array: 1 3 4 7 9
 ```
 
 ---
