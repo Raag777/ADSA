@@ -1,4 +1,4 @@
-# 🧮 Q4(a) – AVL Tree [Insert + Delete + Traversals] (ADSA Lab 03)
+# 🌳 Q4(a) – AVL Tree [Insert + Delete + Traversals] (ADSA Lab 03)
 
 ## 📘 Problem Statement
 Write a program that uses functions to perform the following operations on an **AVL Tree**:
