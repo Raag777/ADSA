@@ -38,7 +38,6 @@ Key operations:
 - Operator precedence (`+ - < * /`)  
 - Digits and variables (`A–Z`, `0–9`)
 
----
 
 ### 🔹 2. Postfix Evaluation
 
@@ -99,7 +98,6 @@ The MUnit test file validates **both major components**:
 | `/infix/basic` | Simple conversion (`A+B → AB+`) |
 | `/infix/parentheses` | Parenthesis handling (`(A+B)*C → AB+C*`) |
 
----
 
 ### ✔️ **2. Postfix Evaluation Tests (Mocked Inputs)**
 
