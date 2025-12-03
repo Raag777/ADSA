@@ -116,40 +116,54 @@ Node* minValue(Node* root) {
 // DELETE in AVL Tree
 
 Node* deleteNode(Node* root, int key) {
-    if (root == NULL)
+    if (root == NULL) {
+        printf("Key %d does NOT exist in AVL Tree.\n", key);
         return root;
+    }
 
-    if (key < root->key)
+    if (key < root->key) {
+        Node* prev = root->left;
         root->left = deleteNode(root->left, key);
 
-    else if (key > root->key)
+        // If nothing changed → key not found
+        if (prev == root->left && (prev == NULL || prev->key != key))
+            return root;
+    }
+    else if (key > root->key) {
+        Node* prev = root->right;
         root->right = deleteNode(root->right, key);
 
+        if (prev == root->right && (prev == NULL || prev->key != key))
+            return root;
+    }
     else {
-        if (root->left == NULL) {
-            Node* temp = root->right;
-            free(root);
-            return temp;
-        }
-        else if (root->right == NULL) {
-            Node* temp = root->left;
+        // KEY FOUND — perform normal AVL deletion
+        if (root->left == NULL || root->right == NULL) {
+            Node* temp = (root->left) ? root->left : root->right;
+            printf("Key %d deleted successfully.\n", key);
+
             free(root);
             return temp;
         }
 
+        // Two-child case
         Node* temp = minValue(root->right);
         root->key = temp->key;
         root->right = deleteNode(root->right, temp->key);
+
+        printf("Key %d deleted successfully.\n", key);
     }
 
+    // If key not found in entire tree
     if (root == NULL)
         return root;
 
-    root->height = max(height(root->left), height(root->right)) + 1;
+    // Recalculate height
+    root->height = 1 + max(height(root->left), height(root->right));
 
     int balance = getBalance(root);
 
-    // Rotations after deletion
+    // BALANCING CASES
     if (balance > 1 && getBalance(root->left) >= 0)
         return rightRotate(root);
 
