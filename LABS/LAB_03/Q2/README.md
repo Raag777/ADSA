@@ -86,168 +86,72 @@ Enter value to insert: 4
 Inserted successfully!
 
 ===== Binary Search Tree Operations =====
-1. Insert
-2. Delete
-3. Inorder Traversal
-4. Preorder Traversal
-5. Postorder Traversal
-6. Exit
 Enter your choice: 1
 Enter value to insert: 6
 Inserted successfully!
 
 ===== Binary Search Tree Operations =====
-1. Insert
-2. Delete
-3. Inorder Traversal
-4. Preorder Traversal
-5. Postorder Traversal
-6. Exit
 Enter your choice: 1
 Enter value to insert: 7
 Inserted successfully!
 
 ===== Binary Search Tree Operations =====
-1. Insert
-2. Delete
-3. Inorder Traversal
-4. Preorder Traversal
-5. Postorder Traversal
-6. Exit
 Enter your choice: 1
 Enter value to insert: 9
 Inserted successfully!
 
 ===== Binary Search Tree Operations =====
-1. Insert
-2. Delete
-3. Inorder Traversal
-4. Preorder Traversal
-5. Postorder Traversal
-6. Exit
 Enter your choice: 1
 Enter value to insert: 11
 Inserted successfully!
 
 ===== Binary Search Tree Operations =====
-1. Insert
-2. Delete
-3. Inorder Traversal
-4. Preorder Traversal
-5. Postorder Traversal
-6. Exit
 Enter your choice: 3
 Inorder Traversal: 4 6 7 9 11 
 
 ===== Binary Search Tree Operations =====
-1. Insert
-2. Delete
-3. Inorder Traversal
-4. Preorder Traversal
-5. Postorder Traversal
-6. Exit
 Enter your choice: 4
 Preorder Traversal: 4 6 7 9 11 
 
 ===== Binary Search Tree Operations =====
-1. Insert
-2. Delete
-3. Inorder Traversal
-4. Preorder Traversal
-5. Postorder Traversal
-6. Exit
 Enter your choice: 5
 Postorder Traversal: 11 9 7 6 4 
 
 ===== Binary Search Tree Operations =====
-1. Insert
-2. Delete
-3. Inorder Traversal
-4. Preorder Traversal
-5. Postorder Traversal
-6. Exit
 Enter your choice: 2
 Enter value to delete: 9
 Deleted successfully (if existed).
 
 ===== Binary Search Tree Operations =====
-1. Insert
-2. Delete
-3. Inorder Traversal
-4. Preorder Traversal
-5. Postorder Traversal
-6. Exit
 Enter your choice: 3
 Inorder Traversal: 4 6 7 11 
 
 ===== Binary Search Tree Operations =====
-1. Insert
-2. Delete
-3. Inorder Traversal
-4. Preorder Traversal
-5. Postorder Traversal
-6. Exit
 Enter your choice: 4
 Preorder Traversal: 4 6 7 11 
 
 ===== Binary Search Tree Operations =====
-1. Insert
-2. Delete
-3. Inorder Traversal
-4. Preorder Traversal
-5. Postorder Traversal
-6. Exit
 Enter your choice: 5
 Postorder Traversal: 11 7 6 4 
 
 ===== Binary Search Tree Operations =====
-1. Insert
-2. Delete
-3. Inorder Traversal
-4. Preorder Traversal
-5. Postorder Traversal
-6. Exit
 Enter your choice: 1
 Enter value to insert: 1
 Inserted successfully!
 
 ===== Binary Search Tree Operations =====
-1. Insert
-2. Delete
-3. Inorder Traversal
-4. Preorder Traversal
-5. Postorder Traversal
-6. Exit
 Enter your choice: 3
 Inorder Traversal: 1 4 6 7 11 
 
 ===== Binary Search Tree Operations =====
-1. Insert
-2. Delete
-3. Inorder Traversal
-4. Preorder Traversal
-5. Postorder Traversal
-6. Exit
 Enter your choice: 4
 Preorder Traversal: 4 1 6 7 11 
 
 ===== Binary Search Tree Operations =====
-1. Insert
-2. Delete
-3. Inorder Traversal
-4. Preorder Traversal
-5. Postorder Traversal
-6. Exit
 Enter your choice: 5
 Postorder Traversal: 1 11 7 6 4 
 
 ===== Binary Search Tree Operations =====
-1. Insert
-2. Delete
-3. Inorder Traversal
-4. Preorder Traversal
-5. Postorder Traversal
-6. Exit
 Enter your choice: 6
 Exiting...
 ```
@@ -281,8 +185,7 @@ These convert traversal output into arrays that can be validated using `munit_as
 
 ### 🔹 Assertions Used
 
-- `munit_assert_int()`  
-   Verifies individual values in traversal sequences.
+- `munit_assert_int()` – Verifies individual values in traversal sequences.
 
 Example:
 
