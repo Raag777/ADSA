@@ -1,4 +1,4 @@
-# 🧮 Q4(a) – AVL Tree [Insert + Delete + Traversals] (ADSA Lab 03)
+# 🌳 Q4(a) – AVL Tree [Insert + Delete + Traversals] (ADSA Lab 03)
 
 ## 📘 Problem Statement
 Write a program that uses functions to perform the following operations on an **AVL Tree**:
@@ -39,6 +39,7 @@ The tree automatically performs rotations to maintain height balance:
 
 Every insertion maintains **balance factor = -1, 0, +1**.
 
+---
 
 ### 🔹 **2. Deletion with Re-Balancing**
 Supports all standard AVL deletion cases:
@@ -51,6 +52,7 @@ Supports all standard AVL deletion cases:
 5. **Handles “Key Not Found” case with message:**
 Key X does NOT exist in AVL Tree.
 
+---
 
 ### 🔹 **3. Tree Traversals**
 The program includes all major traversal functions:
@@ -61,6 +63,7 @@ The program includes all major traversal functions:
 | `preorder()` | Prints Root → Left → Right |
 | `postorder()`| Prints Left → Right → Root |
 
+---
 
 ### 🔹 **4. Interactive Menu (Only in main program)**
 
@@ -75,6 +78,7 @@ Postorder
 Exit
 ```
 
+---
 
 ### 🔹 **5. Improved Delete Feedback**
 
@@ -89,6 +93,7 @@ Key 50 deleted successfully.
 Key 11 does NOT exist in AVL Tree.
 ```
 
+---
 
 ### 🔹 **6. Modular Design**
 The AVL Tree is divided into clean functional blocks:
@@ -100,6 +105,7 @@ The AVL Tree is divided into clean functional blocks:
 - Traversals
 - Menu-driven main()
 
+---
 
 ### 📌 Note
 
@@ -138,125 +144,50 @@ Enter choice: 1
 Enter value: 30
 
 ===== AVL Tree Menu =====
-1. Insert
-2. Delete
-3. Inorder
-4. Preorder
-5. Postorder
-6. Exit
 Enter choice: 1 
 Enter value: 10
 
 ===== AVL Tree Menu =====
-1. Insert
-2. Delete
-3. Inorder
-4. Preorder
-5. Postorder
-6. Exit
 Enter choice: 1
 Enter value: 20
 
 ===== AVL Tree Menu =====
-1. Insert
-2. Delete
-3. Inorder
-4. Preorder
-5. Postorder
-6. Exit
 Enter choice: 1
 Enter value: 50
 
 ===== AVL Tree Menu =====
-1. Insert
-2. Delete
-3. Inorder
-4. Preorder
-5. Postorder
-6. Exit
 Enter choice: 1
 Enter value: 40
 
 ===== AVL Tree Menu =====
-1. Insert
-2. Delete
-3. Inorder
-4. Preorder
-5. Postorder
-6. Exit
 Enter choice: 3
 Inorder: 10 20 30 40 50 
 
 ===== AVL Tree Menu =====
-1. Insert
-2. Delete
-3. Inorder
-4. Preorder
-5. Postorder
-6. Exit
 Enter choice: 4
 Preorder: 20 10 40 30 50 
 
 ===== AVL Tree Menu =====
-1. Insert
-2. Delete
-3. Inorder
-4. Preorder
-5. Postorder
-6. Exit
 Enter choice: 5
 Postorder: 10 30 50 40 20 
 
 ===== AVL Tree Menu =====
-1. Insert
-2. Delete
-3. Inorder
-4. Preorder
-5. Postorder
-6. Exit
 Enter choice: 2
 Enter value: 50
 Key 50 deleted successfully.
 
 ===== AVL Tree Menu =====
-1. Insert
-2. Delete
-3. Inorder
-4. Preorder
-5. Postorder
-6. Exit
 Enter choice: 3
 Inorder: 10 20 30 40 
 
 ===== AVL Tree Menu =====
-1. Insert
-2. Delete
-3. Inorder
-4. Preorder
-5. Postorder
-6. Exit
 Enter choice: 4
 Preorder: 20 10 40 30 
 
 ===== AVL Tree Menu =====
-1. Insert
-2. Delete
-3. Inorder
-4. Preorder
-5. Postorder
-6. Exit
 Enter choice: 2
 Enter value: 33
 Key 33 does NOT exist in AVL Tree.
-
-===== AVL Tree Menu =====
-1. Insert
-2. Delete
-3. Inorder
-4. Preorder
-5. Postorder
-6. Exit
-Enter choice: 6
 ```
 
 ---
