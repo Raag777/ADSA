@@ -9,7 +9,7 @@ static void assert_sorted(int arr[], int exp[], int n) {
         munit_assert_int(arr[i], ==, exp[i]);
 }
 
-// ----------- TEST CASES -----------
+//  TEST CASES 
 
 static MunitResult test_basic(const MunitParameter params[], void* user_data) {
     int arr[] = {9, 3, 7, 1, 6};
@@ -59,7 +59,7 @@ static MunitResult test_negative(const MunitParameter params[], void* user_data)
     return MUNIT_OK;
 }
 
-// ----------- TEST SUITE -----------
+//  TEST SUITE 
 
 static MunitTest tests[] = {
     {"/basic",      test_basic,      NULL, NULL, MUNIT_TEST_OPTION_NONE, NULL},
@@ -79,7 +79,7 @@ static const MunitSuite suite = {
     MUNIT_SUITE_OPTION_NONE
 };
 
-// ----------- MAIN TEST RUNNER -----------
+//  MAIN TEST RUNNER 
 
 int main(int argc, char* argv[]) {
     return munit_suite_main(&suite, NULL, argc, argv);

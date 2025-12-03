@@ -1,18 +1,18 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-// ---------------------------
+
 // Structure for BST Node
-// ---------------------------
+
 typedef struct Node {
     int data;
     struct Node* left;
     struct Node* right;
 } Node;
 
-// ---------------------------
+
 // Create a new node
-// ---------------------------
+
 Node* createNode(int data) {
     Node* newNode = (Node*)malloc(sizeof(Node));
     newNode->data = data;
@@ -20,9 +20,9 @@ Node* createNode(int data) {
     return newNode;
 }
 
-// ---------------------------
+
 // Insert a node in BST
-// ---------------------------
+
 Node* insert(Node* root, int data) {
     if (root == NULL)
         return createNode(data);
@@ -35,18 +35,18 @@ Node* insert(Node* root, int data) {
     return root;
 }
 
-// ---------------------------
+
 // Find minimum node (used in delete)
-// ---------------------------
+
 Node* findMin(Node* root) {
     while (root->left != NULL)
         root = root->left;
     return root;
 }
 
-// ---------------------------
+
 // Delete a node from BST
-// ---------------------------
+
 Node* deleteNode(Node* root, int key) {
     if (root == NULL)
         return root;
@@ -77,10 +77,10 @@ Node* deleteNode(Node* root, int key) {
     return root;
 }
 
-// ---------------------------
+
 // Inorder Traversal (LNR)
 // Sorted order
-// ---------------------------
+
 void inorder(Node* root) {
     if (root != NULL) {
         inorder(root->left);
@@ -89,9 +89,9 @@ void inorder(Node* root) {
     }
 }
 
-// ---------------------------
+
 // Preorder Traversal (NLR)
-// ---------------------------
+
 void preorder(Node* root) {
     if (root != NULL) {
         printf("%d ", root->data);
@@ -100,9 +100,9 @@ void preorder(Node* root) {
     }
 }
 
-// ---------------------------
+
 // Postorder Traversal (LRN)
-// ---------------------------
+
 void postorder(Node* root) {
     if (root != NULL) {
         postorder(root->left);
@@ -111,9 +111,9 @@ void postorder(Node* root) {
     }
 }
 
-// ----------------------------------------------------
+
 // SAFE INPUT FUNCTION (Prevents infinite invalid input)
-// ----------------------------------------------------
+
 int safeInput(int *value) {
     char buffer[50];
 

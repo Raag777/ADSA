@@ -1,8 +1,8 @@
 #include <stdio.h>
 
-// ---------------------------------------------
+
 // MERGE SORT
-// ---------------------------------------------
+
 void merge(int arr[], int l, int m, int r) {
     int i = l, j = m + 1, k = 0;
     int temp[r - l + 1];
@@ -26,9 +26,9 @@ void mergeSort(int arr[], int l, int r) {
     }
 }
 
-// ---------------------------------------------
+
 // QUICK SORT
-// ---------------------------------------------
+
 int partition(int arr[], int low, int high) {
     int pivot = arr[high];
     int i = low - 1;
@@ -51,9 +51,9 @@ void quickSort(int arr[], int low, int high) {
     }
 }
 
-// ---------------------------------------------
+
 // HEAP SORT
-// ---------------------------------------------
+
 void heapify(int arr[], int n, int i) {
     int largest = i;
     int l = 2*i + 1;
@@ -78,7 +78,7 @@ void heapSort(int arr[], int n) {
     }
 }
 
-// ---------------------------------------------
+
 void printArray(int arr[], int n) {
     for (int i = 0; i < n; i++) printf("%d ", arr[i]);
     printf("\n");

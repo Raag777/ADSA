@@ -1,8 +1,8 @@
 #include <stdio.h>
 
-// ---------------------------------------------
+
 // NON-RECURSIVE BINARY SEARCH
-// ---------------------------------------------
+
 int binarySearchIterative(int arr[], int n, int key) {
     int low = 0, high = n - 1;
 
@@ -19,9 +19,9 @@ int binarySearchIterative(int arr[], int n, int key) {
     return -1;
 }
 
-// ---------------------------------------------
+
 // RECURSIVE BINARY SEARCH
-// ---------------------------------------------
+
 int binarySearchRecursive(int arr[], int low, int high, int key) {
     if (low > high)
         return -1;

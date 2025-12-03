@@ -1,8 +1,8 @@
 #include <stdio.h>
 
-// ---------------------------------------------
+
 // MEDIAN OF THREE
-// ---------------------------------------------
+
 int medianOfThree(int arr[], int low, int mid, int high) {
     if (arr[low] > arr[mid]) {
         int t = arr[low]; arr[low] = arr[mid]; arr[mid] = t;

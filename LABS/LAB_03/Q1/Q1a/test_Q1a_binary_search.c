@@ -5,7 +5,7 @@
 int binarySearchIterative(int arr[], int n, int key);
 int binarySearchRecursive(int arr[], int low, int high, int key);
 
-// ---------------------- ITERATIVE TESTS ----------------------
+//  ITERATIVE TESTS 
 
 static MunitResult test_iter_basic(const MunitParameter params[], void* data) {
     int arr[] = {2, 4, 6, 8, 10};
@@ -44,7 +44,7 @@ static MunitResult test_iter_duplicate(const MunitParameter params[], void* data
     return MUNIT_OK;
 }
 
-// ---------------------- RECURSIVE TESTS ----------------------
+//  RECURSIVE TESTS 
 
 static MunitResult test_rec_basic(const MunitParameter params[], void* data) {
     int arr[] = {2, 4, 6, 8};
@@ -65,7 +65,7 @@ static MunitResult test_rec_large(const MunitParameter params[], void* data) {
     return MUNIT_OK;
 }
 
-// ---------------------- TEST SUITE ----------------------
+//  TEST SUITE 
 
 static MunitTest tests[] = {
     // Iterative

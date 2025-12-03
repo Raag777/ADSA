@@ -36,7 +36,7 @@ void postorder_to_array(Node* root, int arr[], int* idx) {
     arr[(*idx)++] = root->data;
 }
 
-// ---------------------- TEST 1: Insert Nodes ----------------------
+//  TEST 1: Insert Nodes 
 static MunitResult test_insert(const MunitParameter params[], void* data) {
     Node* root = NULL;
     root = insert(root, 50);
@@ -55,7 +55,7 @@ static MunitResult test_insert(const MunitParameter params[], void* data) {
     return MUNIT_OK;
 }
 
-// ---------------------- TEST 2: Delete Leaf Node ----------------------
+//  TEST 2: Delete Leaf Node 
 static MunitResult test_delete_leaf(const MunitParameter params[], void* data) {
     Node* root = NULL;
     int nodes[] = {50, 30, 70, 20};
@@ -74,7 +74,7 @@ static MunitResult test_delete_leaf(const MunitParameter params[], void* data) {
     return MUNIT_OK;
 }
 
-// ---------------------- TEST 3: Delete Node with One Child ----------------------
+//  TEST 3: Delete Node with One Child 
 static MunitResult test_delete_one_child(const MunitParameter params[], void* data) {
     Node* root = NULL;
     root = insert(root, 50);
@@ -93,7 +93,7 @@ static MunitResult test_delete_one_child(const MunitParameter params[], void* da
     return MUNIT_OK;
 }
 
-// ---------------------- TEST 4: Delete Node with Two Children ----------------------
+//  TEST 4: Delete Node with Two Children 
 static MunitResult test_delete_two_children(const MunitParameter params[], void* data) {
     Node* root = NULL;
     int nodes[] = {50, 30, 70, 20, 40};
@@ -112,7 +112,7 @@ static MunitResult test_delete_two_children(const MunitParameter params[], void*
     return MUNIT_OK;
 }
 
-// ---------------------- TEST 5: Traversals ----------------------
+//  TEST 5: Traversals 
 static MunitResult test_traversals(const MunitParameter params[], void* data) {
     Node* root = NULL;
     int nodes[] = {50, 30, 70, 20, 40};
@@ -139,7 +139,7 @@ static MunitResult test_traversals(const MunitParameter params[], void* data) {
     return MUNIT_OK;
 }
 
-// ---------------------- SUITE ----------------------
+//  SUITE 
 static MunitTest tests[] = {
     {"/insert",               test_insert,               NULL, NULL, MUNIT_TEST_OPTION_NONE, NULL},
     {"/delete_leaf",          test_delete_leaf,          NULL, NULL, MUNIT_TEST_OPTION_NONE, NULL},

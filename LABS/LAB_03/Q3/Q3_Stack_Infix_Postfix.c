@@ -5,9 +5,9 @@
 
 #define MAX 100
 
-// -------------------------------------------
+
 // STACK for characters (operators)
-// -------------------------------------------
+
 typedef struct {
     char arr[MAX];
     int top;
@@ -20,9 +20,9 @@ void pushChar(CharStack *s, char ch) { if (!isCharFull(s)) s->arr[++s->top] = ch
 char popChar(CharStack *s) { return isCharEmpty(s) ? '\0' : s->arr[s->top--]; }
 char peekChar(CharStack *s) { return isCharEmpty(s) ? '\0' : s->arr[s->top]; }
 
-// -------------------------------------------
+
 // STACK for integers (evaluation)
-// -------------------------------------------
+
 typedef struct {
     int arr[MAX];
     int top;
@@ -33,18 +33,18 @@ int isIntEmpty(IntStack *s) { return s->top == -1; }
 void pushInt(IntStack *s, int x) { s->arr[++s->top] = x; }
 int popInt(IntStack *s) { return s->arr[s->top--]; }
 
-// -------------------------------------------
+
 // Priority of operators
-// -------------------------------------------
+
 int precedence(char ch) {
     if (ch == '+' || ch == '-') return 1;
     if (ch == '*' || ch == '/') return 2;
     return 0;
 }
 
-// -------------------------------------------
+
 // INFIX TO POSTFIX CONVERSION
-// -------------------------------------------
+
 void infixToPostfix(char infix[], char postfix[]) {
     CharStack s;
     initCharStack(&s);
@@ -80,9 +80,9 @@ void infixToPostfix(char infix[], char postfix[]) {
     postfix[k] = '\0';
 }
 
-// -------------------------------------------
+
 // EVALUATE POSTFIX EXPRESSION
-// -------------------------------------------
+
 int evaluatePostfix(char postfix[]) {
     IntStack s;
     initIntStack(&s);
@@ -127,9 +127,9 @@ int evaluatePostfix(char postfix[]) {
     return popInt(&s);
 }
 
-// -------------------------------------------
+
 // MAIN PROGRAM
-// -------------------------------------------
+
 #ifndef TEST_MODE
 int main() {
     char infix[100], postfix[100];

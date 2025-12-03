@@ -6,9 +6,9 @@
 void infixToPostfix(char infix[], char postfix[]);
 int evaluatePostfix(char postfix[]);
 
-// ----------------------------------------------------------
+
 // Helper: Evaluate postfix WITHOUT user input (mock values)
-// ----------------------------------------------------------
+
 int evaluatePostfixMock(char postfix[], int values[]) {
     // Manual stack for evaluation
     int stack[100], top = -1;
@@ -37,9 +37,9 @@ int evaluatePostfixMock(char postfix[], int values[]) {
     return stack[top];
 }
 
-// ----------------------------------------------------------
+
 // TEST 1: Basic infix to postfix
-// ----------------------------------------------------------
+
 static MunitResult test_infix_basic(const MunitParameter params[], void* data) {
     char infix[] = "A+B";
     char postfix[100];
@@ -49,9 +49,9 @@ static MunitResult test_infix_basic(const MunitParameter params[], void* data) {
     return MUNIT_OK;
 }
 
-// ----------------------------------------------------------
+
 // TEST 2: Parentheses
-// ----------------------------------------------------------
+
 static MunitResult test_infix_parentheses(const MunitParameter params[], void* data) {
     char infix[] = "(A+B)*C";
     char postfix[100];
@@ -61,9 +61,9 @@ static MunitResult test_infix_parentheses(const MunitParameter params[], void* d
     return MUNIT_OK;
 }
 
-// ----------------------------------------------------------
+
 // TEST 3: Postfix evaluation with known values
-// ----------------------------------------------------------
+
 static MunitResult test_eval_simple(const MunitParameter params[], void* data) {
     char postfix[] = "AB+C*"; // (A + B) * C
 
@@ -78,9 +78,9 @@ static MunitResult test_eval_simple(const MunitParameter params[], void* data) {
     return MUNIT_OK;
 }
 
-// ----------------------------------------------------------
+
 // TEST 4: Digits only
-// ----------------------------------------------------------
+
 static MunitResult test_eval_digits(const MunitParameter params[], void* data) {
     char postfix[] = "23*5+"; // 2*3+5 = 11
 
@@ -92,9 +92,9 @@ static MunitResult test_eval_digits(const MunitParameter params[], void* data) {
     return MUNIT_OK;
 }
 
-// ----------------------------------------------------------
+
 // TEST SUITE
-// ----------------------------------------------------------
+
 static MunitTest tests[] = {
     {"/infix/basic", test_infix_basic, NULL, NULL, MUNIT_TEST_OPTION_NONE, NULL},
     {"/infix/parentheses", test_infix_parentheses, NULL, NULL, MUNIT_TEST_OPTION_NONE, NULL},

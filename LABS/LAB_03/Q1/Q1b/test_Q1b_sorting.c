@@ -10,7 +10,7 @@ static void check_sorted(int arr[], int expected[], int n) {
         munit_assert_int(arr[i], ==, expected[i]);
 }
 
-// ---------------------- QUICK SORT ----------------------
+//  QUICK SORT 
 
 static MunitResult test_qs_basic(const MunitParameter params[], void* data) {
     int arr[] = {5, 1, 4, 2};
@@ -36,7 +36,7 @@ static MunitResult test_qs_duplicate(const MunitParameter params[], void* data) 
     return MUNIT_OK;
 }
 
-// ---------------------- MERGE SORT ----------------------
+//  MERGE SORT 
 
 static MunitResult test_ms_sorted(const MunitParameter params[], void* data) {
     int arr[] = {1, 2, 3, 4};
@@ -54,7 +54,7 @@ static MunitResult test_ms_negatives(const MunitParameter params[], void* data) 
     return MUNIT_OK;
 }
 
-// ---------------------- HEAP SORT ----------------------
+//  HEAP SORT 
 
 static MunitResult test_heap_basic(const MunitParameter params[], void* data) {
     int arr[] = {4, 10, 3, 5, 1};
@@ -80,7 +80,7 @@ static MunitResult test_heap_single(const MunitParameter params[], void* data) {
     return MUNIT_OK;
 }
 
-// ---------------------- TEST SUITE ----------------------
+//  TEST SUITE 
 
 static MunitTest tests[] = {
     {"/quick/basic",   test_qs_basic,   NULL, NULL, 0, NULL},
