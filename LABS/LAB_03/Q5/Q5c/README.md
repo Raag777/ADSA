@@ -1,42 +1,47 @@
 # 🧮 Q5(c) – Floyd–Warshall Algorithm (ADSA Lab 03)
 
 ## 📘 Problem Statement
-Implement the **Floyd–Warshall algorithm** to compute **all-pairs shortest paths** for a given weighted graph.
+Write a program to compute **All-Pairs Shortest Paths (APSP)** using the **Floyd–Warshall Algorithm** for a weighted graph represented using an **Adjacency Matrix**.
 
-The algorithm supports:
-- Graphs represented via **Adjacency Matrix**
-- Automatic handling of **no-edge = INF**
-- Computes shortest distances between **every pair (i, j)**
-- Outputs final **distance matrix**
-
+The program must:
+- Accept an **N × N adjacency matrix**
+- Treat `0` as **no edge** (except diagonal)
+- Convert missing edges to **INF (99999)**
+- Compute shortest paths between **every pair of vertices (i, j)**
+- Output the final **APSP matrix**
 ---
 
 ## 📂 Code Files
 
 | File Name | Description |
 |----------|-------------|
-| `Q5c_FloydWarshall.c` | Full implementation of Floyd–Warshall algorithm. |
+| `Q5c_FloydWarshall.c` | Complete implementation of Floyd–Warshall with user input mode. |
 | `test_Q5c_FloydWarshall.c` | Automated unit tests using the **MUnit framework**. |
-| `munit.c` / `munit.h` | Unit testing framework used for validating Q5c. |
+| `munit.c` / `munit.h` | Unit testing framework (provided in ADSA lab setup). |
 
 ---
 
 ## 🧠 Code Overview
 
-### 🔹 1. Floyd–Warshall Input Handling
-The program accepts an **N × N adjacency matrix** with the rule:
-- `0` means **no edge**, except on diagonal.
-- Non-zero values represent weights.
+This program implements the **Floyd–Warshall Algorithm**, which computes shortest paths between all node pairs in a weighted graph.
 
-Zeros are converted to **INF (99999)** for correct APSP processing.
+### 🔹 1. Input Handling
+The input graph is taken as an adjacency matrix.  
+Rules applied:
+- `dist[i][j] = 0` and `i != j` ➝ treated as **no edge**
+- Such entries are converted to:
 
+```c
+INF  // 99999
+```
 
 ### 🔹 2. Core Floyd–Warshall Logic
 
-For every intermediate node `k`, update:
+For every intermediate node `k`, update all distances:
 
 ```bash
-dist[i][j] = min(dist[i][j], dist[i][k] + dist[k][j])
+if (dist[i][k] + dist[k][j] < dist[i][j])
+    dist[i][j] = dist[i][k] + dist[k][j];
 ```
 
 This computes shortest paths between **all pairs**.
@@ -97,26 +102,45 @@ All-Pairs Shortest Path Matrix:
 
 ## 🧩 MUnit Code Overview
 
-The `test_Q5c_FloydWarshall.c` file validates the correctness of:
-- Graph initialization  
-- INF conversion  
-- Floyd–Warshall path updates  
-- Correct shortest-path outputs  
+The file **`test_Q5c_FloydWarshall.c`** contains automated unit tests that verify the correctness of the **Floyd–Warshall All-Pairs Shortest Path (APSP) implementation**.
 
-### ✔ Test Cases Included
+These tests ensure that:
+- The algorithm correctly handles **INF (99999)** for disconnected nodes  
+- Shortest paths are properly **updated using intermediate nodes**  
+- The final **distance matrix** matches expected APSP results  
+- The function behaves correctly without using `scanf`, using direct matrix inputs  
 
-| Test Name | Description |
-|----------|-------------|
-| `/basic_graph` | Verifies APSP on a simple weighted graph. |
-| `/disconnected_graph` | Ensures INF is preserved where no path exists. |
-| `/triangle_graph` | Checks shortest path through intermediate nodes. |
 
-### ✔ Assertions Used
+### 🔍 What the Test Suite Checks
 
-| Assertion | Purpose |
+| Test Name | Purpose |
 |----------|----------|
-| `munit_assert_int()` | Validates computed shortest distances |
-| `munit_assert_true()` | Checks derived relations like `dist[i][j] <= dist[i][k] + dist[k][j]` |
+| `/basic_fw` | Verifies APSP on a simple 3-node graph (checks path 0 → 1 → 2). |
+| `/with_inf` | Ensures unreachable nodes remain **INF** and reachable ones update properly. |
+| `/4node_graph` | Tests multi-hop shortest paths on a 4-node weighted graph. |
+
+Each test provides a matrix to the function, calls `floydWarshall(n, dist)` and validates the updated values.
+
+
+### ✔️ Assertions Used
+
+The following MUnit assertions ensure correctness:
+
+- `munit_assert_int()` – Validates shortest path correctness such as:
+
+  ```c
+  munit_assert_int(dist[0][2], ==, 6);
+  ```
+- `munit_assert_true()` – Used to verify inequalities like:
+
+  ```c
+  munit_assert_true(dist[i][j] <= dist[i][k] + dist[k][j]);
+  ```
+
+These checks confirm that:
+- Distance values are updated correctly
+- `INF` remains unchanged for disconnected nodes
+- Multi-hop shortest routes are computed properly
 
 ---
 
