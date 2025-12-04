@@ -1,4 +1,4 @@
-# 🧮 Lab 05 – Maximum Bipartite Matching (ADSA LAB04)
+# 🧮 Q – Maximum Bipartite Matching (ADSA LAB05)
 
 ## 📘 Problem Statement
 
