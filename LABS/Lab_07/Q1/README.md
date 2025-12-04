@@ -4,7 +4,7 @@
 
 Implement the **Ellipsoid Algorithm** to determine the *feasibility* of a Linear Programming (LP) system of the form:
 
-### *Ax ≤ b*
+ *Ax ≤ b*
 
 The program must:
 
