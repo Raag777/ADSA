@@ -4,7 +4,7 @@
 
 Implement the **Ellipsoid Algorithm** to determine the *feasibility* of a Linear Programming (LP) system of the form:
 
- *Ax ≤ b*
+ **Ax ≤ b**
 
 The program must:
 
@@ -37,7 +37,7 @@ or
 ### 🔹 Key Steps
 
 1. **Initialize a large ellipsoid** centered at the origin.  
-2. Check whether the current center violates any constraint *A_i x ≤ b_i*.  
+2. Check whether the current center violates any constraint **A_i x ≤ b_i**.  
 3. If a constraint is violated:  
    - Use it as a **cutting plane**  
    - Compute the **next ellipsoid** that contains the feasible region  
@@ -47,7 +47,7 @@ or
 ### 🔹 Additional Enhancements in This Implementation
 
 - **Early contradiction detection**, e.g.:  
-  - *x ≤ 1* and *x ≥ 5* → impossible  
+  - **x ≤ 1** and **x ≥ 5** → impossible  
 - **Final feasibility validation**, preventing false positives  
 - **Stable ellipsoid radius for numerical consistency**
 
@@ -63,8 +63,8 @@ or
 | Worst-case theoretical    | **O(n⁴ · L)**, where **L** is input bit-length |
 
 **Explanation:**
-- Each ellipsoid update requires matrix and vector operations → O(n²)
-- Number of iterations depends on the precision requirement ε → O(log(1/ε))
+- Each ellipsoid update requires matrix and vector operations → **O(n²)**
+- Number of iterations depends on the precision requirement **ε** → **O(log(1/ε))**
 - The theoretical worst case depends on numeric encoding size (bit complexity)
   making ellipsoid method polynomial-time but slower in practice.
 
