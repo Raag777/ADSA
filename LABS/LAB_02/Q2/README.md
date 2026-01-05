@@ -47,6 +47,47 @@ It allows **manual user input** for both the matrix `A` and vector `b` and print
 
 ---
 
+## 🧮 Algorithm Complexity
+
+### ⏱️ Time Complexity
+
+| Component / Operation               | Time Complexity |
+|------------------------------------|------------------|
+| Finding pivot in each column       | **O(n)**        |
+| Swapping rows (when required)      | **O(n)**        |
+| Eliminating entries below pivot    | **O(n²)**       |
+| Forward substitution (Ly = Pb)     | **O(n²)**       |
+| Backward substitution (Ux = y)     | **O(n²)**       |
+| **Overall LUP decomposition**      | **O(n³)**       |
+| **Overall system solving (Ax = b)**| **O(n²)**       |
+| **Total Complexity**               | **O(n³)**       |
+
+📌 **Explanation:**  
+- LUP decomposition performs nested loops over rows & columns → **O(n³)**.  
+- Once decomposed, solving the system via substitution is only **O(n²)**.  
+- Therefore computational cost is dominated by the decomposition step.
+
+---
+
+### 🗃️ Space Complexity
+
+| Component                                      | Space Used |
+|------------------------------------------------|------------|
+| Input matrix **A (n × n)**                     | **O(n²)**  |
+| Vector **b**                                   | **O(n)**   |
+| Vector **x**                                   | **O(n)**   |
+| Permutation vector **P**                       | **O(n)**   |
+| Temporary vector **y** in solver               | **O(n)**   |
+| No dynamic allocation / no extra data structures | **O(1)** extra |
+| **Overall Space Complexity**                   | **O(n²)**  |
+
+📌 **Explanation:**  
+- The matrix `A` itself requires **n²** space and dominates total usage.  
+- Only small auxiliary arrays (`P`, `x`, `y`) are needed → **O(n)**.  
+- No new matrices are created; operations modify A **in-place**, so no extra memory overhead is incurred beyond the input.
+
+---
+
 ## 🧑‍💻 Usage
 
 ### ▶️ Compile and Run Main Program
