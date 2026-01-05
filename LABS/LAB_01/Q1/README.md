@@ -56,6 +56,51 @@ a large input `n` (e.g., n = 1000).
 
 ---
 
+## 🧮 Algorithm Complexity
+
+### ⏱️ Time Complexity
+
+| Operation                                      | Time Complexity |
+|------------------------------------------------|-----------------|
+| Evaluating all 12 functions for input `n`      | **O(1)**        |
+| Bubble Sort on 12 functions                    | **O(1)**        |
+| Printing results (12 entries)                  | **O(1)**        |
+| Overall Time Complexity                         | **O(1)**        |
+
+📌 **Explanation:**  
+- The number of functions is constant (`12`), so both evaluation and sorting operate on a fixed-size list.
+- Even though Bubble Sort is `O(k²)`, with `k = 12`, it becomes a constant-time operation.
+- Therefore, the complete program runs in **constant time** regardless of `n`.
+
+---
+
+### 🗃️ Space Complexity
+
+| Component                                  | Space Used      |
+|--------------------------------------------|-----------------|
+| Array of `FuncInfo` (12 entries)           | **O(1)**        |
+| Temporary variables for swapping/sorting   | **O(1)**        |
+| Function outputs (double values)           | **O(1)**        |
+| Overall Space Complexity                   | **O(1)**        |
+
+📌 **Explanation:**  
+- Memory usage does not depend on the input `n`.
+- All storage (array of 12 structs, temp variables, computed results) is constant in size.
+
+---
+
+### ✅ Final Complexity Summary
+
+- **Time Complexity:** ✔️ `O(1)`  
+  - Constant number of function evaluations  
+  - Constant-size Bubble Sort  
+- **Space Complexity:** ✔️ `O(1)`  
+  - Only fixed-size arrays and variables used  
+
+This makes the entire analysis program extremely fast and memory-efficient.
+
+---
+
 ## 🧑‍💻 Usage
 
 ### ▶️ Compile and Run Main Program

@@ -66,6 +66,63 @@ C22 = M1 - M2 + M3 + M6
 
 ---
 
+## 🧮 Algorithm Complexity (Strassen Matrix Multiplication)
+
+### ⏱️ Time Complexity
+
+| Operation                                        | Time Complexity |
+|--------------------------------------------------|------------------|
+| Splitting matrices into submatrices              | **O(n²)**        |
+| Matrix additions & subtractions (18 total)       | **O(n²)**        |
+| 7 recursive Strassen multiplications             | **7 · T(n/2)**   |
+| Overall Strassen Algorithm Complexity            | **O(n^log₂7)** ≈ **O(n²․⁸¹)** |
+
+📌 **Explanation:**  
+- Strassen’s algorithm reduces the number of multiplications from **8 → 7**, causing the recurrence:
+
+  T(n) = 7 * T(n/2) + O(n²)
+
+- Using the Master theorem:
+
+  log₂(7) ≈ 2.81
+
+- Thus, the overall time complexity becomes:
+
+  O(n^2.81)
+
+- This is asymptotically faster than classical multiplication (**O(n³)**).
+
+---
+
+### 🗃️ Space Complexity
+
+| Component                                         | Space Used |
+|---------------------------------------------------|------------|
+| Input matrices (A, B) and output matrix (C)       | **O(n²)**  |
+| Temporary submatrices (A11, A12, …, B22)          | **O(n²)**  |
+| Temporary matrices M1–M7                          | **O(n²)**  |
+| Temporary buffers (temp1, temp2)                  | **O(n²)**  |
+| Recursion stack depth (log₂n levels)              | **O(log n)** |
+| **Overall Space Complexity**                      | **O(n²)**  |
+
+**Explanation:**  
+- Even though multiple submatrices exist, they are all bounded by a fixed `MAX x MAX` array size.
+- Thus the auxiliary memory stays at **O(n²)**.
+- The recursive depth adds only **O(log n)** extra stack usage.
+
+---
+
+### ✔ Summary
+
+| Metric              | Complexity |
+|---------------------|------------|
+| **Time Complexity** | **O(n^2.81)** |
+| **Space Complexity** | **O(n²)** |
+
+This matches the expected complexity of Strassen’s algorithm.
+
+---
+
 ## 🧑‍💻 Usage
 
 ### ▶️ Compile and Run Main Program

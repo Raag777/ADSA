@@ -48,6 +48,60 @@ This implementation performs **in-place LUP decomposition** of matrix **A** usin
 
 ---
 
+## 🧮 Algorithm Complexity – LUP Decomposition
+
+### ⏱️ Time Complexity
+
+| Operation                                | Time Complexity |
+|------------------------------------------|------------------|
+| Pivot search in each column              | **O(n)** |
+| Row swapping                             | **O(n)** |
+| Eliminating entries below pivot          | **O(n)** per row |
+| Overall LUP Decomposition (nested loops) | **O(n³)** |
+
+📌 **Explanation:**  
+- For each column `k`, the algorithm searches for the pivot → **O(n)**  
+- Then row elimination occurs for remaining rows → another **O(n)** work  
+- These two operations are done for all `n` columns  
+- Therefore, the total complexity becomes:
+
+  T(n) = n * (O(n) + O(n)) = O(n³)
+
+
+LUP decomposition (like Gaussian elimination) always runs in **cubic time**.
+
+---
+
+### 🗃️ Space Complexity
+
+| Component                                   | Space Used |
+|---------------------------------------------|------------|
+| Matrix `A[n][n]` (input + LU in-place)      | **O(n²)** |
+| Permutation array `P[n]`                    | **O(n)**  |
+| Separate L and U matrices for display       | **O(n²)** |
+| Temporary scalar variables                  | **O(1)**  |
+| Overall space complexity                    | **O(n²)** |
+
+📌 **Explanation:**  
+- The matrix `A` itself requires **O(n²)** space.  
+- The decomposition is done **in-place**, so no extra matrix is created internally.  
+- However, for presentation, separate **L** and **U** matrices are created → **O(n²)**.  
+- The permutation vector `P` stores row indices → **O(n)**.  
+- No dynamic memory (`malloc`) is used; all storage is static arrays.
+
+---
+
+### ✅ Final Complexity Summary
+
+| Metric | Complexity |
+|--------|------------|
+| **Time Complexity** | **O(n³)** |
+| **Space Complexity** | **O(n²)** |
+
+LUP decomposition is cubic-time but memory-efficient with in-place computations.
+
+---
+
 ## 🧑‍💻 Usage
 
 ### ▶️ Compile and Run Main Program

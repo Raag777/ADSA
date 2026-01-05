@@ -73,6 +73,45 @@ The results can also be visualized graphically using **Gnuplot**, and verified a
 
 ---
 
+## 🧮 Algorithm Complexity
+
+### ⏱️ Time Complexity
+
+| Operation                              | Time Complexity |
+|----------------------------------------|------------------|
+| Single comparison inside Binary Search | **O(1)** |
+| Divide search space into 2 parts       | **O(log₂ n)** |
+| Single comparison inside Ternary Search| **O(1)** |
+| Divide search space into 3 parts       | **O(log₃ n)** |
+| Overall Binary Search                  | **O(log n)** |
+| Overall Ternary Search                 | **O(log n)** |
+
+📌 **Explanation:**  
+Both algorithms reduce the search space logarithmically:  
+- Binary Search ⇒ halves the range → **T(n) = T(n/2) + O(1)**  
+- Ternary Search ⇒ splits into 3 parts → **T(n) = T(n/3) + O(1)**  
+
+Both result in **O(log n)**, but Ternary Search performs **more comparisons per iteration**, making it slower in practice despite similar asymptotic complexity.
+
+---
+
+### 🗃️ Space Complexity
+
+| Component                               | Space Used |
+|-----------------------------------------|------------|
+| Input array (provided by the user)      | **O(n)** |
+| Binary Search variables (`low`, `mid`)  | **O(1)** |
+| Ternary Search variables (`mid1`, `mid2`)| **O(1)** |
+| Comparison counters                     | **O(1)** |
+| No recursion (iterative program)        | **O(1)** |
+| Overall Space Complexity                | **O(n)** |
+
+📌 **Explanation:**  
+Both search algorithms are **iterative**, requiring only constant extra space for pointers and counters.  
+The only memory used aside from this is the **input array**, which contributes **O(n)** space.
+
+---
+
 ## 🧑‍💻 Usage
 
 ### ▶️ Compile and Run Main Program

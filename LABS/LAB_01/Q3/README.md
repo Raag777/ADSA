@@ -56,59 +56,41 @@ The algorithm follows a **divide and conquer** approach similar to binary search
    - Either all coins are perfect → return `-1`
    - Or the middle coin is defective → return its index.
 
-### 🔹 Time Complexity
+---
 
-- Each comparison halves the problem size → **O(log₂ n + c)**
+## 🧮 Algorithm Complexity
+
+### ⏱️ Time Complexity
+
+| Operation                     | Time Complexity |
+|-------------------------------|------------------|
+| Compare two halves (each step) | **O(1)** |
+| Halving the search space       | **O(log n)** |
+| Overall defective coin search  | **O(log n)** |
+
+📌 **Explanation:**  
+- Each iteration compares two groups and eliminates half of the coins.
+- Thus, the algorithm follows:
+
+  T(n) = T(n/2) + O(1) → **O(log n)**
+
 
 ---
 
-## 📊 Recurrence and Solution
+### 🗃️ Space Complexity
 
-Let T(n) be the worst-case number of steps for an input of size *n*.
+| Component                           | Space Used |
+|-------------------------------------|------------|
+| Input array of coin weights         | **O(n)**   |
+| Variables (`low`, `high`, etc.)     | **O(1)**   |
+| No recursion / no extra structures  | **O(1)**   |
+| Overall space complexity            | **O(n)**   |
 
-**T(n) = T(n / 2) + O(1)**
-
----
-
-### 🔹 Applying (Repeated Substitution)
-
-T(n) = T(n / 2) + c  
-     = T(n / 4) + 2c  
-     = ...  
-     = T(n / 2ᵏ) + k·c
-
-Stop when the subproblem size becomes 1:
-
-n / 2ᵏ = 1  ⇒  k = log₂ n
-
-Hence,
-
-T(n) = T(1) + c·log₂ n  
-**T(n) = O(log n)**
+📌 **Explanation:** 
+- The algorithm runs **iteratively**, not recursively, and does **not allocate extra arrays**.
+- Space usage comes only from the original input of `n` coin weights.
 
 ---
-
-### 🔹 Base-Change Note
-
-Changing the logarithm base only affects the constant factor:
-
-logₐ n = (log_b n) / (log_b a)
-
----
-
-### 🔹 Inductive View (Interval Halving)
-
-At each step, the number of coins considered halves:
-
-n → n/2 → n/4 → ... → n/2ᵏ
-
-After **k = ⌈log₂ n⌉** iterations, only one coin remains. 
-
-Thus, the worst-case number of comparisons grows as:
-
-**Θ(log n)**
-
- ---
 
 ## 🧑‍💻 Usage
 

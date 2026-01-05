@@ -41,6 +41,41 @@ The testing ensures correctness for multiple cases including sorted, reverse, si
 
 ---
 
+## 🧮 Algorithm Complexity (Heap Sort)
+
+### ⏱️ Time Complexity
+
+| Operation                         | Time Complexity |
+|----------------------------------|------------------|
+| Building the Max Heap             | **O(n)** |
+| Heapify per extraction            | **O(log n)** |
+| Extracting all n elements         | **O(n log n)** |
+| **Overall Heap Sort Time**        | **O(n log n)** |
+
+📌 **Explanation:**  
+- Building the initial max heap takes **O(n)** time.  
+- Each of the **n extract-max operations** requires a `heapify()` call which takes **O(log n)**.  
+- Therefore, total time becomes:  
+  **T(n) = O(n) + n · O(log n) = O(n log n)**
+
+---
+
+### 🗃️ Space Complexity
+
+| Component                         | Space Used |
+|----------------------------------|------------|
+| Input array (sorted in-place)     | **O(n)** |
+| Extra variables (temp swaps, i)   | **O(1)** |
+| Auxiliary storage used by heapify | **O(1)** |
+| **Overall Space Complexity**      | **O(1)** |
+
+📌 **Explanation:**  
+- Heap Sort is an **in-place sorting algorithm**, meaning it does **not allocate extra arrays**.  
+- Only a constant number of variables (`largest`, `left`, `right`, etc.) are used.  
+- Thus, excluding the input array (given), the additional space required is **O(1)**.
+
+---
+
 ## 🧑‍💻 Usage
 
 ### ▶️ Compile and Run Main Program
