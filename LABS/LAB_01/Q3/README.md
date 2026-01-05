@@ -69,10 +69,10 @@ The algorithm follows a **divide and conquer** approach similar to binary search
 | Overall defective coin search  | **O(log n)** |
 
 📌 **Explanation:**  
-Each iteration compares two groups and eliminates half of the coins.  
-Thus, the algorithm follows:
+- Each iteration compares two groups and eliminates half of the coins.
+- Thus, the algorithm follows:
 
-T(n) = T(n/2) + O(1) → **O(log n)**
+  T(n) = T(n/2) + O(1) → **O(log n)**
 
 
 ---
@@ -86,9 +86,9 @@ T(n) = T(n/2) + O(1) → **O(log n)**
 | No recursion / no extra structures  | **O(1)**   |
 | Overall space complexity            | **O(n)**   |
 
-📌 **Explanation:**  
-The algorithm runs **iteratively**, not recursively, and does **not allocate extra arrays**.  
-Space usage comes only from the original input of `n` coin weights.
+📌 **Explanation:** 
+- The algorithm runs **iteratively**, not recursively, and does **not allocate extra arrays**.
+- Space usage comes only from the original input of `n` coin weights.
 
 ---
 
