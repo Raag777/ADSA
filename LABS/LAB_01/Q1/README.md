@@ -68,13 +68,13 @@ a large input `n` (e.g., n = 1000).
 | Overall Time Complexity                         | **O(1)**        |
 
 📌 **Explanation:**  
-The number of functions is constant (`12`), so both evaluation and sorting operate on a fixed-size list.  
-Even though Bubble Sort is `O(k²)`, with `k = 12`, it becomes a constant-time operation.  
-Therefore, the complete program runs in **constant time** regardless of `n`.
+- The number of functions is constant (`12`), so both evaluation and sorting operate on a fixed-size list.
+- Even though Bubble Sort is `O(k²)`, with `k = 12`, it becomes a constant-time operation.
+- Therefore, the complete program runs in **constant time** regardless of `n`.
 
 ---
 
-### 📦 Space Complexity
+### 🗃️ Space Complexity
 
 | Component                                  | Space Used      |
 |--------------------------------------------|-----------------|
@@ -84,8 +84,8 @@ Therefore, the complete program runs in **constant time** regardless of `n`.
 | Overall Space Complexity                   | **O(1)**        |
 
 📌 **Explanation:**  
-Memory usage does not depend on the input `n`.  
-All storage (array of 12 structs, temp variables, computed results) is constant in size.
+- Memory usage does not depend on the input `n`.
+- All storage (array of 12 structs, temp variables, computed results) is constant in size.
 
 ---
 
